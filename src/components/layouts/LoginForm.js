@@ -27,7 +27,7 @@ const LoginFrom = () => {
                 type='email'
                 id='email'
                 name='email'
-                value='example@gmail.com'
+                placeholder='example@gmail.com'
               />
               <br />
               <br />
@@ -37,7 +37,7 @@ const LoginFrom = () => {
                 type='password'
                 id='password'
                 name='password'
-                value='Password'
+                placeholder='Password'
               />
               <br />
               <a href='/' className='forgot-pass'>

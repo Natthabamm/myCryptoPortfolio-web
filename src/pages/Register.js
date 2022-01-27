@@ -1,12 +1,12 @@
 import React from 'react';
 import PublicNavbar from "../components/layouts/PublicNavbar";
+import RegisterForm from '../components/layouts/RegisterForm';
 
 const Register = () => {
   return (
     <>
       <PublicNavbar />
-
-      <h1>This is Register Page!!!</h1>
+      <RegisterForm />
     </>
   );
 };
