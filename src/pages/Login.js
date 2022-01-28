@@ -1,11 +1,9 @@
 import React from 'react';
-import PublicNavbar from "../components/layouts/PublicNavbar";
-import LoginForm from '../components/layouts/LoginForm'
+import LoginForm from '../components/auths/LoginForm'
 
 const Login = () => {
     return (
     <>
-        <PublicNavbar />
         <LoginForm  />
     </>
     );

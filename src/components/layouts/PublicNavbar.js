@@ -3,7 +3,7 @@ import "../../styles/navbar/PublicNavbar.css";
 
 const PublicNavbar = () => {
   return (
-    <div>
+    <>
       <nav>
         <div>
           <div>
@@ -25,7 +25,8 @@ const PublicNavbar = () => {
           </button>
         </div>
       </nav>
-    </div>
+
+    </>
   );
 };
 

@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "../../styles/login/LoginForm.css";
 import googleIcon from "../../pics/googleIcon.png";
 import ellipse from "../../pics/Ellipse.png";
 import rocket from "../../pics/Rocket.png";
+import { AuthContext } from '../../contexts/AuthContext';
 
 const LoginFrom = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const { login } = useContext(AuthContext)
+
+  const handleSubmitForm = e => {
+    e.preventDefault();
+    login(email, password);
+  }
+
   return (
     <>
       <div className='main'>
@@ -20,7 +31,8 @@ const LoginFrom = () => {
                 <i className='fas fa-times-circle'></i>
               </div>
             </div>
-            <form>
+            {/* Login Form */}
+            <form onSubmit={handleSubmitForm}>
               <label for='email'>Email</label>
               <br />
               <input
@@ -28,6 +40,8 @@ const LoginFrom = () => {
                 id='email'
                 name='email'
                 placeholder='example@gmail.com'
+                value={email}
+                onChange={e => setEmail(e.target.value)}
               />
               <br />
               <br />
@@ -38,6 +52,8 @@ const LoginFrom = () => {
                 id='password'
                 name='password'
                 placeholder='Password'
+                value={password}
+                onChange={e => setPassword(e.target.vaue)}
               />
               <br />
               <a href='/' className='forgot-pass'>

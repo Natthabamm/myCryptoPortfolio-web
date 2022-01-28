@@ -1,21 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-// import Dashbord from "../pages/Dashbord";
-// import History from "../pages/History";
+import Dashboard from "../pages/Dashboard";
+import History from "../pages/History";
+import { AuthContext } from "../contexts/AuthContext";
+import PrivateLayout from '../components/layouts/PrivateLayout';
+import PublicLayout from "../components/layouts/PublicLayout";
+import Home from "../pages/Home";
 
 const RouteConfig = () => {
+  const { user } = useContext(AuthContext);
+  // console.log(user);
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/register' element={<Register />} />
-
-      {/* Private Route */}
-      {/* <Route path='/dasdbord' element={<Dashbord />} />
-      <Route path='/history' element={<History />} /> */}
+      {user ? (
+        <Route path='dashboard' element={<PrivateLayout />}>
+          <Route path='/dasboard' element={<Dashboard />} />
+          <Route path='/history' element={<History />} />
+        </Route>
+      ) : (
+        <Route path='/' element={<PublicLayout />}>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+        </Route>
+      )}
     </Routes>
   );
 };
