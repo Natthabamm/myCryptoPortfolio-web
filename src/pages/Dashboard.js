@@ -3,7 +3,7 @@ import React from 'react';
 const Dashboard = () => {
     return (
     <div>
-        Dashbord
+        <h1 style={{color: 'white', textAlign: 'center' }}>Dashbord</h1>
     </div>
     );
 };

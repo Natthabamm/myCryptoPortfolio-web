@@ -4,6 +4,7 @@ import googleIcon from "../../pics/googleIcon.png";
 import ellipse from "../../pics/Ellipse.png";
 import rocket from "../../pics/Rocket.png";
 import { AuthContext } from '../../contexts/AuthContext';
+import { useNavigate } from "react-router-dom";
 
 const LoginFrom = () => {
   const [email, setEmail] = useState('');
@@ -11,9 +12,12 @@ const LoginFrom = () => {
 
   const { login } = useContext(AuthContext)
 
+  const navigate = useNavigate();
+
   const handleSubmitForm = e => {
     e.preventDefault();
     login(email, password);
+    navigate('/dashboard');
   }
 
   return (
@@ -53,7 +57,7 @@ const LoginFrom = () => {
                 name='password'
                 placeholder='Password'
                 value={password}
-                onChange={e => setPassword(e.target.vaue)}
+                onChange={e => setPassword(e.target.value)}
               />
               <br />
               <a href='/' className='forgot-pass'>
@@ -62,7 +66,7 @@ const LoginFrom = () => {
               <input type='submit' value='Login' className='login-btn' />
               <p>or continue with</p>
               <button className='google-btn'>
-                <a href='/google'>
+                <a href='#google'>
                   <img src={googleIcon} alt='' width={30} />
                 </a>
               </button>

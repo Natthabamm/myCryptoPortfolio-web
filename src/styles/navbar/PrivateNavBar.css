@@ -7,7 +7,7 @@ body {
 }
 
 /* Currency dropdown */
-.menu-trigger1 {
+.menu1-trigger1 {
   color: #ffffff;
   border-radius: 90px;
   cursor: pointer;
@@ -29,7 +29,7 @@ body {
   top: 60px;
   right: 50px;
   width: 200px;
-  height: 80px;
+  height: 150px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   opacity: 0;
   visibility: hidden;
@@ -50,11 +50,9 @@ body {
 }
 
 .menu1 li {
-  /* border-bottom: 1px solid #dddddd; */
   display: flex;
   align-items: center;
   height: 40px;
-  margin-left: 20px;
 }
 
 .menu1 li a {
@@ -64,8 +62,28 @@ body {
   display: block;
 }
 
+.input-private {
+  width: 10px;
+  margin-left: 20px;
+}
+.cur-name {
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-left: 25px;
+}
+.li-01:hover,
+.li-02:hover {
+  background-color: #ff794c59;
+  width: 200px;
+}
+
+#input-private {
+  margin-left: 10px;
+}
+
 /* User dropdown menu */
-.menu-trigger {
+.menu2-trigger2 {
   color: #ffffff;
   border-radius: 90px;
   cursor: pointer;
@@ -81,13 +99,14 @@ body {
   margin-right: 10px;
 }
 
-.menu {
+.menu2 {
   background: #333333;
   color: white;
   border-radius: 8px;
   position: absolute;
   top: 60px;
   right: 0;
+  height: 150px;
   width: 200px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   opacity: 0;
@@ -96,33 +115,50 @@ body {
   transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 }
 
-.menu.active {
+.menu2.active {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-.menu ul {
+.menu2 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
-.menu li {
-  border-bottom: 1px solid #dddddd;
+.menu2 ul li {
+  display: flex;
+  align-items: center;
+  height: 40px;
 }
 
-.menu li a {
+.li-username {
+  height: 40px;
+  width: 200px;
+  font-weight: 800;
+  margin-left: 35px;
+}
+.li-1:hover,
+.li-2:hover {
+  background-color: #ff794c59;
+  width: 200px;
+}
+
+.menu2 li a {
   text-decoration: none;
   color: #ffffff;
   padding: 15px 20px;
   display: block;
 }
 
-i {
+.i-private {
   margin-right: 10px;
 }
 
-img {
-  border-radius: 50%;
+.img-private {
+  border-radius: 50px;
+}
+
+.logout-div {
+  margin-left: 20px;
 }
