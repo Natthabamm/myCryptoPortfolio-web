@@ -1,0 +1,71 @@
+.crypto-card {
+  background-color: #ff794c23;
+  border: 2px solid #e05b30;
+  border-radius: 10px;
+  height: 130px;
+  width: 225px;
+  display: flex;
+  justify-content: center;
+}
+.all-layout-card {
+  padding: 10px;
+  width: 225px;
+}
+.upper-inside-card {
+  display: flex;
+  justify-content: space-between;
+}
+.left-inside-card {
+  width: 50px;
+  height: 50px;
+  background-color: #ff794c3b;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.center-inside-card {
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  /* outline: 2px dashed yellow; */
+}
+.center-inside-card-name {
+  color: #c4c4c4;
+  text-align: center;
+}
+.reight-inside-card {
+  background-color: #30bb784d;
+  height: 30px;
+  padding: 15px 5px;
+  border-radius: 50px;
+  text-align: center;
+  color: #30bb78;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.reight-inside-card-k {
+  background-color: #e72e044d;
+  height: 30px;
+  padding: 15px 5px;
+  border-radius: 50px;
+  text-align: center;
+  color: #e72d04;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.lower-crypto-card {
+  color: #ffffff;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.ranking {
+  color: #e05b30;
+  font-weight: bold;
+}

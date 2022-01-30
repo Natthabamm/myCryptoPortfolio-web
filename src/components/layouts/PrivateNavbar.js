@@ -22,7 +22,8 @@ const PrivateNavbar = () => {
   const handleClickLogout = () => {
     logout();
     navigate('/');
-  }
+  };
+
 
   return (
     <div>
@@ -34,11 +35,11 @@ const PrivateNavbar = () => {
             </Link>
           </NavItem>
           <NavItem>
-            <Link to='/dashboard' className='nav-link text-light'>
+            <Link to='/dashboard' className='nav-link text-light' >
               Dashboard
             </Link>
           </NavItem>
-          <NavItem>
+          <NavItem className="nav-history">
             <Link to='/history' className='nav-link text-light'>
               History
             </Link>
