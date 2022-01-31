@@ -1,8 +1,12 @@
 import React from "react";
 import CryptoCard from "../components/dashboard/CryptoCard";
+import AddTransactionForm from "../components/dashboard/AddTransactionForm"
 import "../styles/dashboard/Dashboard.css";
+import { CryptoState } from "../contexts/CryptoContext";
 
 const Dashboard = () => {
+  const { symbol } = CryptoState()
+
   return (
     <div className='bg-dashboard'>
       <div className='main-content'>
@@ -10,11 +14,11 @@ const Dashboard = () => {
           <div className='left-inside-main'>
             <h5>Current Balance</h5>
             <div className='balance-main'>
-              <h2>US$0</h2>
+              <h2>{symbol}0</h2>
               <div className='percent-inside-balance'>--%</div>
             </div>
             <div className='percent-main'>
-              +$0
+              +{symbol}0
               <div className='time-inside-percent'>(24H)</div>
             </div>
           </div>
@@ -40,7 +44,9 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className='footer-main'>footer</div>
+        <div className='footer-main'>
+          {/* <AddTransactionForm /> */}
+        </div>
       </div>
       <div className='card-content'>
         <div className="merket-trend">Market trend</div>

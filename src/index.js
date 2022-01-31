@@ -8,13 +8,16 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import ErrorContextProvider from "./contexts/ErrorContext";
 import AuthContextProvider from "./contexts/AuthContext";
+import CryptoContext from "./contexts/CryptoContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <ErrorContextProvider>
         <AuthContextProvider>
-          <App />
+          <CryptoContext>
+            <App />
+          </CryptoContext>
         </AuthContextProvider>
       </ErrorContextProvider>
     </BrowserRouter>

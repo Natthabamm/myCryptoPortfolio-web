@@ -6,6 +6,7 @@ import { Nav, NavItem } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
 import userPic from "../../pics/profileImg.png";
 import { AuthContext } from "../../contexts/AuthContext";
+import { CryptoState } from "../../contexts/CryptoContext";
 
 const PrivateNavbar = () => {
   const dropdownRef1 = useRef(null);
@@ -23,6 +24,8 @@ const PrivateNavbar = () => {
     logout();
     navigate('/');
   };
+
+  const { currency, setCurrency } = CryptoState();
 
 
   return (
@@ -60,14 +63,31 @@ const PrivateNavbar = () => {
                 Select currency
               </li>
               <li className="li-01">
-                <input className="input-private" type='radio' id='usd' name='currency' value='USD'  />
+                <input 
+                  className="input-private" 
+                  type='radio' id='usd' 
+                  name='currency' 
+                  value={currency}
+                  onClick={(e) => {
+                    setCurrency('USD')
+                  }}
+                />
                 <label for='usd' id="input-private">
                   {/* <i className="fas fa-dollar-sign" /> */}
                    USD
                 </label>
               </li>
               <li className="li-02">
-                <input type='radio' id='thb' name='currency' value='THB' className="input-private"/>
+                <input 
+                  className="input-private"
+                  type='radio' 
+                  id='thb' 
+                  name='currency' 
+                  value={currency}
+                  onClick={(e) => {
+                    setCurrency('THB')
+                  }}
+                />
                 <label for='thb' id="input-private">THB</label>
               </li>
             </ul>
