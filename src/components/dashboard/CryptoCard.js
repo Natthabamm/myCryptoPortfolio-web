@@ -95,7 +95,7 @@ const CryptoCard = () => {
                 <img src={bnb} alt='' width={35} height={35} />
               </div>
               <div className='center-inside-card'>
-                DOT
+                BNB
                 <div className='center-inside-card-name'>Binance</div>
               </div>
               <div className='reight-inside-card-k'>- 1.67%</div>
