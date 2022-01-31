@@ -34,7 +34,7 @@
   color: #c4c4c4;
   text-align: center;
 }
-.reight-inside-card {
+.reight-inside-card-positive {
   background-color: #30bb784d;
   height: 30px;
   padding: 15px 5px;
@@ -46,7 +46,7 @@
   justify-content: center;
   font-weight: bold;
 }
-.reight-inside-card-k {
+.reight-inside-card-negative {
   background-color: #e72e044d;
   height: 30px;
   padding: 15px 5px;

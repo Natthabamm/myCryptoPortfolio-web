@@ -1,109 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/dashboard/CryptoCard.css";
 import btc from "../../pics/crypto/btc.png";
-import dot from "../../pics/crypto/dot.png";
-import ksm from "../../pics/crypto/ksm.png";
-import eth from "../../pics/crypto/eth.png";
-import bnb from "../../pics/crypto/bnb.png";
+import { CryptoState } from "../../contexts/CryptoContext";
+import axios from "axios";
+import { TrendingCoins } from "../../config/api";
+import { numWithCommas } from "../../services/numberWithCommas";
 
 const CryptoCard = () => {
+  const [trending, setTrending] = useState([]);
+  const { currency, symbol } = CryptoState();
+
+  const fetchTrendingCoins = async () => {
+    const { data } = await axios.get(TrendingCoins(currency));
+
+    const result = data.splice(0, 5);
+    console.log(result);
+    setTrending(result);
+  };
+
+  useEffect(() => {
+    fetchTrendingCoins();
+  }, currency);
+
   return (
     <>
-      {/* card 1 */}
-      <div className='ranking'>
-        #1
-        <div className='crypto-card'>
-          <div className='all-layout-card'>
-            <div className='upper-inside-card'>
-              <div className='left-inside-card'>
-                <img src={btc} alt='' width={35} height={35} />
+      {trending.map((coin, index) => {
+        return (
+          <div className='ranking'>
+            #{index+1}
+            <div className='crypto-card'>
+              <div className='all-layout-card'>
+                <div className='upper-inside-card'>
+                  <div className='left-inside-card'>
+                    <img src={coin.image} alt='' width={35} height={35} />
+                  </div>
+                  <div className='center-inside-card'>
+                    {coin.symbol.toUpperCase()}
+                    <div className='center-inside-card-name'>{coin.name}</div>
+                  </div>
+                  <div className={`reight-inside-card-${coin.price_change_percentage_24h < 0 ? "negative" : "positive"}`}>{coin.price_change_percentage_24h.toFixed(2)}%</div>
+                </div>
+                <div className='lower-crypto-card'>${coin.current_price}</div>
               </div>
-              <div className='center-inside-card'>
-                BTC
-                <div className='center-inside-card-name'>Bitcoin</div>
-              </div>
-              <div className='reight-inside-card'>+2.05%</div>
             </div>
-            <div className='lower-crypto-card'>$50,943.85</div>
           </div>
-        </div>
-      </div>
-      {/* card 2 */}
-      <div className='ranking'>
-        #2
-        <div className='crypto-card'>
-          <div className='all-layout-card'>
-            <div className='upper-inside-card'>
-              <div className='left-inside-card'>
-                <img src={eth} alt='' width={35} height={35} />
-              </div>
-              <div className='center-inside-card'>
-                ETH
-                <div className='center-inside-card-name'>Ethereum</div>
-              </div>
-              <div className='reight-inside-card'>+5.17%</div>
-            </div>
-            <div className='lower-crypto-card'>$52,618.99</div>
-          </div>
-        </div>
-      </div>
-      {/* card 3 */}
-      <div className='ranking'>
-        #3
-        <div className='crypto-card'>
-          <div className='all-layout-card'>
-            <div className='upper-inside-card'>
-              <div className='left-inside-card'>
-                <img src={dot} alt='' width={35} height={35} />
-              </div>
-              <div className='center-inside-card'>
-                DOT
-                <div className='center-inside-card-name'>Polkadot</div>
-              </div>
-              <div className='reight-inside-card'>+31.04%</div>
-            </div>
-            <div className='lower-crypto-card'>$32.41</div>
-          </div>
-        </div>
-      </div>
-      {/* card 4 */}
-      <div className='ranking'>
-        #4
-        <div className='crypto-card'>
-          <div className='all-layout-card'>
-            <div className='upper-inside-card'>
-              <div className='left-inside-card'>
-                <img src={ksm} alt='' width={35} height={35} />
-              </div>
-              <div className='center-inside-card'>
-                KSM
-                <div className='center-inside-card-name'>Kusama</div>
-              </div>
-              <div className='reight-inside-card-k'>- 0.71%</div>
-            </div>
-            <div className='lower-crypto-card'>$171.95</div>
-          </div>
-        </div>
-      </div>
-      {/* card 5 */}
-      <div className='ranking'>
-        #5
-        <div className='crypto-card'>
-          <div className='all-layout-card'>
-            <div className='upper-inside-card'>
-              <div className='left-inside-card'>
-                <img src={bnb} alt='' width={35} height={35} />
-              </div>
-              <div className='center-inside-card'>
-                BNB
-                <div className='center-inside-card-name'>Binance</div>
-              </div>
-              <div className='reight-inside-card-k'>- 1.67%</div>
-            </div>
-            <div className='lower-crypto-card'>$385.92</div>
-          </div>
-        </div>
-      </div>
+        );
+      })}
     </>
   );
 };
