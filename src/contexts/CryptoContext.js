@@ -1,10 +1,11 @@
 import React, {useContext, useState, useEffect, createContext } from 'react';
+import axios from 'axios';
 
 const Crypto = createContext();
 
 const CryptoContext = ({ children }) => {
     const [currency, setCurrency] = useState('USD');
-    const [symbol, setSymbol] = useState('$')
+    const [symbol, setSymbol] = useState('$');
 
     useEffect(() => {
         if (currency === 'USD') setSymbol('$');

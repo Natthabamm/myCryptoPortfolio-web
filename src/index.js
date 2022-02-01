@@ -9,6 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 import ErrorContextProvider from "./contexts/ErrorContext";
 import AuthContextProvider from "./contexts/AuthContext";
 import CryptoContext from "./contexts/CryptoContext";
+import RateContext from "./contexts/RateContext";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,7 +17,9 @@ ReactDOM.render(
       <ErrorContextProvider>
         <AuthContextProvider>
           <CryptoContext>
-            <App />
+            <RateContext>
+              <App />
+            </RateContext>
           </CryptoContext>
         </AuthContextProvider>
       </ErrorContextProvider>

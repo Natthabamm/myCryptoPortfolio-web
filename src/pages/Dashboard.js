@@ -3,9 +3,10 @@ import CryptoCard from "../components/dashboard/CryptoCard";
 import AddTransactionForm from "../components/dashboard/AddTransactionForm"
 import "../styles/dashboard/Dashboard.css";
 import { CryptoState } from "../contexts/CryptoContext";
+// import { RateState } from "../contexts/RateContext";
 
 const Dashboard = () => {
-  const { symbol } = CryptoState()
+  const { symbol } = CryptoState();
 
   return (
     <div className='bg-dashboard'>
