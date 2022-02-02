@@ -30,7 +30,7 @@
 .modal-body {
   border: none;
   padding: 10px;
-  height: 400px;
+  height: 450px;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;

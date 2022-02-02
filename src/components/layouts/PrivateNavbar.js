@@ -71,10 +71,9 @@ const PrivateNavbar = () => {
                   id='usd'
                   name='currency'
                   value={currency}
-                  checked={currency === 'USD'}
+                  checked={currency === "USD"}
                 />
                 <label for='usd' id='input-private'>
-                  {/* <i className="fas fa-dollar-sign" /> */}
                   USD
                 </label>
               </li>
@@ -90,7 +89,7 @@ const PrivateNavbar = () => {
                   id='thb'
                   name='currency'
                   value={currency}
-                  checked={currency === 'THB'}
+                  checked={currency === "THB"}
                 />
                 <label for='thb' id='input-private'>
                   THB

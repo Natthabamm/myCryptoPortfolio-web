@@ -3,6 +3,8 @@ import CryptoCard from "../components/dashboard/CryptoCard";
 import "../styles/dashboard/Dashboard.css";
 import { CryptoState } from "../contexts/CryptoContext";
 import Modal from "../components/utils/Modal";
+import TransactionTable from "../components/histories/TransactionTable";
+import { DoughnutChart } from "../components/utils/DoughnutChart";
 
 const Dashboard = () => {
   const [show, setShow] = useState(false);
@@ -36,7 +38,7 @@ const Dashboard = () => {
         </div>
         <div className='center-main'>
           <div className='content-center-main'>
-            <div className="text-center-main">
+            {/* <div className="text-center-main">
                 This portfolio is empty
                 <br />
                 Add any coins to get start
@@ -49,11 +51,13 @@ const Dashboard = () => {
                 <i className='fas fa-plus-circle' style={{ color: "white" }} />
                 Add New
               </button>
-            </div>
+            </div> */}
+            <DoughnutChart />
           </div>
         </div>
         <div className='footer-main'>
-          {/* <AddTransactionForm /> */}
+          
+          {/* <TransactionTable /> */}
         </div>
       </div>
       <div className='card-content'>
