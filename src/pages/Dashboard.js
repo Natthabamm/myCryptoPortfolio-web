@@ -3,8 +3,8 @@ import CryptoCard from "../components/dashboard/CryptoCard";
 import "../styles/dashboard/Dashboard.css";
 import { CryptoState } from "../contexts/CryptoContext";
 import Modal from "../components/utils/Modal";
-import TransactionTable from "../components/histories/TransactionTable";
 import { DoughnutChart } from "../components/utils/DoughnutChart";
+import AssetTable from "../components/dashboard/AssetTable";
 
 const Dashboard = () => {
   const [show, setShow] = useState(false);
@@ -21,19 +21,30 @@ const Dashboard = () => {
               <div className='percent-inside-balance'>--%</div>
             </div>
             <div className='percent-main'>
-              +{symbol}0
-              <div className='time-inside-percent'>(24H)</div>
+              +{symbol}0<div className='time-inside-percent'>(24H)</div>
             </div>
           </div>
           <div className='right-inside-main'>
-            <button 
-              className='add-new'
-              onClick={() => setShow(true)}
-            >
+            <button className='add-new' onClick={() => setShow(true)}>
               <i className='fas fa-plus-circle' style={{ color: "white" }} />
               Add New
             </button>
-              <Modal onClose={() => setShow(false)} show={show} />
+            <Modal onClose={() => setShow(false)} show={show} />
+          </div>
+        </div>
+        <div className='btn-group-select-chart'>
+          <div className='container'>
+            <div className='tabs'>
+              <input type='radio' id='radio-1' name='tabs' checked />
+              <label className='tab' for='radio-1'>
+                Pie Chart
+              </label>
+              <input type='radio' id='radio-2' name='tabs' />
+              <label className='tab' for='radio-2'>
+                Statistic
+              </label>
+              <span className='gilder'></span>
+            </div>
           </div>
         </div>
         <div className='center-main'>
@@ -56,13 +67,12 @@ const Dashboard = () => {
           </div>
         </div>
         <div className='footer-main'>
-          
-          {/* <TransactionTable /> */}
+          <AssetTable />
         </div>
       </div>
       <div className='card-content'>
-        <div className="merket-trend">Market trend</div>
-          <CryptoCard />
+        <div className='merket-trend'>Market trend</div>
+        <CryptoCard />
       </div>
     </div>
   );
