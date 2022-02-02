@@ -1,0 +1,64 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.div-in-modal {
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff;
+}
+.h5-in-modal {
+  font-weight: bold;
+  margin: 20px 0 0 10px;
+}
+.modal-content {
+  width: 400px;
+  background-color: #000000;
+  padding: 10px;
+}
+.modal-titile {
+  color: #ffffff;
+  margin: 0;
+}
+.modal-body {
+  border: none;
+  padding: 10px;
+  height: 400px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.button-group-modal {
+  background-color: #ff794c6b;
+  height: 40px;
+  width: 350px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+/* Button Group */
+.buy-btn {
+  background-color: #e05b30;
+  width: 150px;
+  border-radius: 5px;
+  border: none;
+  color: #ffffff;
+  font-weight: bold;
+}
+.sell-btn {
+  background-color: transparent;
+  width: 150px;
+  height: 60px;
+  border: none;
+  color: #ffffff;
+  font-weight: bold;
+}

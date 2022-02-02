@@ -1,15 +1,23 @@
 import React from 'react';
-import "../../styles/dashboard/AddTransactionForm.css"
+import "../../styles/dashboard/AddTransactionForm.scss";
+// import btc from '../../pics/crypto/btc.png';
 
 const AddTransactionForm = () => {
   return (
       <>
         <form >
-            <select for="select coin" id="coin">
-              <option value="btc">BTC</option>
-              <option value="dot">DOT</option>
-              <option value="bnb">BNB</option>
-            </select>
+            <div className='container'>
+              <div className='tabs'>
+                <input type="radio" id="radio-1" name='tabs' checked />
+                <label className='tab' for="radio-1">Buy</label>
+                <input type="radio" id="radio-2" name='tabs' />
+                <label className='tab' for="radio-2">Sell</label>
+                <span className='gilder'></span>
+              </div>
+            </div>
+            <div className='select-coin'>
+              
+            </div>
         </form>
       </>
   );

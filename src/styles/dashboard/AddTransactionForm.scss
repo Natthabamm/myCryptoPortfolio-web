@@ -1,0 +1,73 @@
+.container {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  right: 0;
+  bottom: 0;
+}
+.tabs {
+  display: flex;
+  position: relative;
+  background-color: #ff794c3b;
+  box-shadow: 0 0 1px rgba(#e06818ea, 0.15), 0 6px 12px 0 rgba(#e05718, 0.15);
+  padding: 0.75rem;
+  border-radius: 10px;
+  * {
+    z-index: 2;
+  }
+}
+input[type="radio"] {
+  display: none;
+}
+.tab {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  width: 140px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.15s ease-in;
+}
+input[id="radio"] {
+  &:checked {
+    & + label {
+      color: #e05b30;
+      & > .notification {
+        background-color: #e05b30;
+        color: #fff;
+      }
+    }
+  }
+}
+input[id="radi0-1"] {
+  &:checked {
+    & ~ .gilter {
+      transform: translateX(15%);
+    }
+  }
+}
+input[id="radio-2"] {
+  &:checked {
+    & ~ .gilder {
+      transform: translateX(115%);
+    }
+  }
+}
+.gilder {
+  top: 7.5%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 85%;
+  width: 150px;
+  background-color: #e05b30;
+  z-index: 1;
+  border-radius: 10px;
+  transition: 0.25s ease-out;
+}
+// Part form
+.select-coin {
+  margin-top: 50px;
+}

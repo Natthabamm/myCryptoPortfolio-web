@@ -1,0 +1,8 @@
+.bg-history {
+  background-color: #1c1c1e;
+  height: 95vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}

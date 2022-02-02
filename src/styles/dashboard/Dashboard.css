@@ -31,6 +31,10 @@
 
 .footer-main {
   height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /*  waiting for adjust */
 }
 .left-inside-main {
   width: 40vw;

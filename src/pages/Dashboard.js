@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import CryptoCard from "../components/dashboard/CryptoCard";
-import AddTransactionForm from "../components/dashboard/AddTransactionForm"
 import "../styles/dashboard/Dashboard.css";
 import { CryptoState } from "../contexts/CryptoContext";
-// import { RateState } from "../contexts/RateContext";
+import Modal from "../components/utils/Modal";
 
 const Dashboard = () => {
+  const [show, setShow] = useState(false);
   const { symbol } = CryptoState();
 
   return (
@@ -24,10 +24,14 @@ const Dashboard = () => {
             </div>
           </div>
           <div className='right-inside-main'>
-            <button className='add-new'>
+            <button 
+              className='add-new'
+              onClick={() => setShow(true)}
+            >
               <i className='fas fa-plus-circle' style={{ color: "white" }} />
               Add New
             </button>
+              <Modal onClose={() => setShow(false)} show={show} />
           </div>
         </div>
         <div className='center-main'>
@@ -38,7 +42,10 @@ const Dashboard = () => {
                 Add any coins to get start
             </div>
             <div>
-              <button className='add-new-1'>
+              <button 
+                className='add-new-1'
+                onClick={() => setShow(true)}
+              >
                 <i className='fas fa-plus-circle' style={{ color: "white" }} />
                 Add New
               </button>
