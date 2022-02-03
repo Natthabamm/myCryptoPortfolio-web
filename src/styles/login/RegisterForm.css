@@ -60,3 +60,7 @@
 .right-content-reg {
   margin: 50px;
 }
+#i-reg:hover {
+  color: #e78564;
+  transform: rotateX(10);
+}

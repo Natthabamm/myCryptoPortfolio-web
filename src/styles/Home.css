@@ -10,8 +10,12 @@ body {
   color: aliceblue;
   margin-top: 150px;
 }
-h1 {
+.h1-home {
   font-size: 2.6rem;
+  font-display: swap;
+  font-size: 3rem;
+  /* text-transform: uppercase; */
+  animation: glow 2s ease-in-out infinite;
 }
 .left-content-home {
   margin-top: 30px;
@@ -20,11 +24,12 @@ h1 {
 .explan-div {
   margin-top: 20px;
 }
-p {
+.p-home {
   color: white;
+  font-weight: bold;
 }
 
-.button {
+.button-home {
   align-content: center;
   border-color: #ff784c;
   border-radius: 30px;
@@ -35,17 +40,81 @@ p {
   margin-left: 100px;
 }
 
-.button :is(a) {
+.hover-a {
   color: #ff784c;
   text-decoration-line: none;
   font-size: 1.8rem;
 }
 
-.button:hover {
+.button-home:hover {
   background-color: #ff784c;
 }
 .hover-a:hover {
   color: white;
   text-decoration-line: none;
   font-size: 1.8rem;
+}
+/* Animation text  */
+@import url("https://fonts.googleapis.com/css?family=Roboto:700");
+
+#container {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: bold;
+  width: 100%;
+}
+
+#flip {
+  height: 50px;
+  overflow: hidden;
+}
+
+#flip > div > div {
+  color: #fff;
+  padding: 4px 12px;
+  height: 45px;
+  margin-bottom: 45px;
+  display: inline-block;
+}
+
+#flip div:first-child {
+  animation: show 5s linear infinite;
+}
+
+#flip div div {
+  background: #a742c5;
+}
+#flip div:first-child div {
+  background: #4da759;
+}
+#flip div:last-child div {
+  background: #dc143c;
+}
+
+@keyframes show {
+  0% {
+    margin-top: -270px;
+  }
+  5% {
+    margin-top: -180px;
+  }
+  33% {
+    margin-top: -180px;
+  }
+  38% {
+    margin-top: -90px;
+  }
+  66% {
+    margin-top: -90px;
+  }
+  71% {
+    margin-top: 0px;
+  }
+  99.99% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -270px;
+  }
 }

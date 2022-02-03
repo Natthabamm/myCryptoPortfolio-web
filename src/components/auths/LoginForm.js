@@ -31,9 +31,9 @@ const LoginFrom = () => {
           <div className='div-form'>
             <div className='header-form'>
               <h2>Login</h2>
-              <div>
-                <i className='fas fa-times-circle'></i>
-              </div>
+              <span onClick={e => navigate('/')}>
+                <i className='fas fa-times-circle' id="i-log"></i>
+              </span>
             </div>
             {/* Login Form */}
             <form onSubmit={handleSubmitForm}>

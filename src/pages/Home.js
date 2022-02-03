@@ -7,19 +7,29 @@ const Home = () => {
     <>
       <section className='section-home'>
         <div className='left-content-home'>
-          <h1>
-            Let start <br />
-            your Crypto <br />
-            portfolio
-          </h1>
+          <div id='container'>
+            LET'S
+            <div id='flip'>
+              <div>
+                <div>START</div>
+              </div>
+              <div>
+                <div>YOUR</div>
+              </div>
+              <div>
+                <div>CRYPTO</div>
+              </div>
+            </div>
+            PORTFOLIO!
+          </div>
           <div>
             <div className='explan-div'>
-              <p>
+              <p className='p-home'>
                 Manage your cryptocurrencies investing to easier, <br />
                 Let’s try with us.
               </p>
             </div>
-            <button className='button'>
+            <button className='button-home'>
               <a className='hover-a' href='/register'>
                 Getstart
               </a>

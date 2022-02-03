@@ -1,11 +1,32 @@
-* {
-  box-sizing: border-box;
+.navbar-brand {
+  font-weight: bold;
 }
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
+.link-dash-1,
+.link-dash-2 {
+  text-decoration-line: none;
+  color: #ffffff;
+  font-weight: 500;
+  padding: 20px 10px;
+  margin-left: 30px;
+  height: 50px;
 }
-
+.link-dash-1:hover,
+.link-dash-2:hover {
+  color: rgb(216, 105, 53);
+}
+.link-dash-1-active,
+.link-dash-2-active {
+  text-decoration-line: none;
+  padding: 20px 10px;
+  color: #ffffff;
+  margin-left: 30px;
+  border-bottom: 3px solid #ff784c;
+}
+.link-dash-1-active:hover,
+.link-dash-2-active:hover {
+  color: antiquewhite;
+  font-weight: 500;
+}
 /* Currency dropdown */
 .menu1-trigger1 {
   color: #ffffff;
@@ -22,7 +43,7 @@ body {
 }
 
 .menu1 {
-  background: #333333;
+  background: #141414;
   color: white;
   border-radius: 8px;
   position: absolute;
@@ -62,8 +83,12 @@ body {
   display: block;
 }
 
-.input-private {
-  width: 10px;
+#input-private {
+  font-weight: bold;
+}
+.thai-currency,
+.usd-currency {
+  border-radius: 50px;
   margin-left: 20px;
 }
 .cur-name {
@@ -100,7 +125,7 @@ body {
 }
 
 .menu2 {
-  background: #333333;
+  background: #141414;
   color: white;
   border-radius: 8px;
   position: absolute;
@@ -140,6 +165,11 @@ body {
 }
 .li-1:hover,
 .li-2:hover {
+  background-color: #ff794c59;
+  width: 200px;
+}
+.li-1-active,
+.li-2-active {
   background-color: #ff794c59;
   width: 200px;
 }

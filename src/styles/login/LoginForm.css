@@ -50,6 +50,7 @@ input {
   width: 400px;
   height: 45px;
   border-radius: 5px;
+  padding: 0 10px;
 }
 .forgot-pass {
   text-decoration-line: none;
@@ -77,4 +78,8 @@ p {
 .register-here {
   text-decoration-line: none;
   color: white;
+}
+#i-log:hover {
+  color: #e78564;
+  transform: rotateX(10);
 }

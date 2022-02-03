@@ -1,22 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useRef } from "react";
 import { useDetectOutsideClick } from "../../services/useDetectOutsideClick";
 import "../../styles/navbar/PrivateNavbar.css";
 import { Nav, NavItem } from "reactstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useLocation } from "react-router-dom";
 import userPic from "../../pics/profileImg.png";
 import { AuthContext } from "../../contexts/AuthContext";
 import { CryptoState } from "../../contexts/CryptoContext";
+import dollar from "../../pics/currencies/dollar.png";
+import thai from "../../pics/currencies/thaiflag.png";
 
 const PrivateNavbar = () => {
   const dropdownRef1 = useRef(null);
   const dropdownRef2 = useRef(null);
+
   const [isActive1, setIsActive1] = useDetectOutsideClick(dropdownRef1, false);
   const [isActive2, setIsActive2] = useDetectOutsideClick(dropdownRef2, false);
+  // const [isActive, setIsActive] = useState(false);
+
   const handleClick1 = () => setIsActive1(!isActive1);
   const handleClick2 = () => setIsActive2(!isActive2);
 
-  const { logout } = useContext(AuthContext);
+  const { logout, user } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -27,22 +32,28 @@ const PrivateNavbar = () => {
 
   const { currency, setCurrency } = CryptoState();
 
+  const location = useLocation();
+
   return (
     <div>
       <Nav className='navbar navbar-dark bg-dark'>
         <div className='d-flex justify-content ms-4'>
-          <NavItem>
-            <Link to='/' className='navbar-brand'>
+          <NavItem className="active">
+            <Link to='/dashboard' className='navbar-brand'>
               myCryptoPort
             </Link>
           </NavItem>
           <NavItem>
-            <Link to='/dashboard' className='nav-link text-light'>
+            <Link 
+              to='/dashboard' 
+              className='nav-link text-light' 
+              className={`link-dash-1${location.pathname === "/dashboard" ? '-active' : ''}`}
+            >
               Dashboard
             </Link>
           </NavItem>
           <NavItem className='nav-history'>
-            <Link to='/history' className='nav-link text-light'>
+            <Link to='/history' className='nav-link text-light' className={`link-dash-2${location.pathname === "/history" ? '-active' : ''}`}>
               History
             </Link>
           </NavItem>
@@ -51,7 +62,9 @@ const PrivateNavbar = () => {
         <div className='d-flex'>
           {/* Curreny dropdown menu */}
           <span onClick={handleClick1} className='menu1-trigger1'>
-            USD <i className='fas fa-caret-down m-2' />
+            <img src={currency === 'USD' ? dollar : thai } alt='' width={20} height={20} />
+            &nbsp;&nbsp;
+            {currency} <i className='fas fa-caret-down m-2' />
           </span>
           <nav
             ref={dropdownRef1}
@@ -65,13 +78,12 @@ const PrivateNavbar = () => {
                   setCurrency("USD");
                 }}
               >
-                <input
-                  className='input-private'
-                  type='radio'
-                  id='usd'
-                  name='currency'
-                  value={currency}
-                  checked={currency === "USD"}
+                <img
+                  className='usd-currency'
+                  src={dollar}
+                  alt='dollar'
+                  width={25}
+                  height={25}
                 />
                 <label for='usd' id='input-private'>
                   USD
@@ -83,13 +95,12 @@ const PrivateNavbar = () => {
                   setCurrency("THB");
                 }}
               >
-                <input
-                  className='input-private'
-                  type='radio'
-                  id='thb'
-                  name='currency'
-                  value={currency}
-                  checked={currency === "THB"}
+                <img
+                  className='thai-currency'
+                  src={thai}
+                  alt='thai'
+                  width={25}
+                  height={25}
                 />
                 <label for='thb' id='input-private'>
                   THB
@@ -103,8 +114,8 @@ const PrivateNavbar = () => {
             <img
               className='img-private'
               src={userPic}
-              height={30}
-              width={30}
+              height={40}
+              width={40}
               alt=''
             />
           </span>
@@ -113,7 +124,10 @@ const PrivateNavbar = () => {
             className={`menu2 ${isActive2 ? "active" : "inactive"}`}
           >
             <ul>
-              <li className='li-username'>Hello, Username</li>
+              <li className='li-username'>
+                Hello, {user.username.toUpperCase()}
+              </li>
+              {/* <hr/> */}
               <li className='li-1'>
                 <a href='/setting'>
                   <i className='fas fa-cog' id='i-private' />

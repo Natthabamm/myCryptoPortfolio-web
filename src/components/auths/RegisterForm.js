@@ -45,9 +45,9 @@ const RegisterForm = () => {
             <div className='div-form-reg'>
               <div className='header-form-reg'>
                 <h2>Register</h2>
-                <div>
+                <span className="bnt-exist" onClick={e => navigate('/')}>
                   <i className='fas fa-times-circle' id="i-reg"></i>
-                </div>
+                </span>
               </div>
 
               <form onSubmit={handleSubmitRegister}>
