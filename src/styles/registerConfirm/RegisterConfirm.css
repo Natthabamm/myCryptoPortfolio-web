@@ -1,0 +1,50 @@
+.main-register-comfirm {
+  background-color: #1c1c1e;
+  height: 98vh;
+}
+
+.head-register-confirm-main {
+  height: 250px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rocket-register-confirm {
+  margin: 50px 50px 0 0;
+  width: 200px;
+  height: 200px;
+}
+
+.confirm-register-div {
+  height: 300px;
+  text-align: center;
+}
+
+.h2-confirm-register {
+  font-weight: bold;
+}
+
+.h5-register-confirm {
+  color: white;
+  font-weight: 500;
+  margin-bottom: 50px;
+}
+
+.link-confirm-register {
+  text-decoration-line: none;
+  color: #9be15d;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.link-confirm-register:hover {
+  color: #bdf888;
+}
+.footer-register-confirm {
+  display: flex;
+  height: 370px;
+}
+.ellipse-regidter-confirm {
+  align-self: flex-end;
+}
