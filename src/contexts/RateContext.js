@@ -6,19 +6,18 @@ import { CryptoState } from './CryptoContext';
 const Rate = createContext();
 
 const RateContext = ({ children }) => {
-    const [rate, setRate] = useState(1);
+    const [rate, setRate] = useState(32);
     const { currency } = CryptoState();
 
      const fetchLatesRateCurrencies = async () => {
         const { data } = await axios.get(LatesRateCurrencies());
         const result = data.data.THB
-        console.log(result)
         if (currency === 'THB') setRate(result);
       };
 
       useEffect(() => {
         fetchLatesRateCurrencies();
-      }, []);
+      }, [currency]);
       
 
   return (

@@ -14,10 +14,10 @@ const Home = () => {
                 <div>START</div>
               </div>
               <div>
-                <div>YOUR</div>
+                <div>CRYPTO</div>
               </div>
               <div>
-                <div>CRYPTO</div>
+                <div>YOUR</div>
               </div>
             </div>
             PORTFOLIO!
@@ -31,7 +31,7 @@ const Home = () => {
             </div>
             <button className='button-home'>
               <a className='hover-a' href='/register'>
-                Getstart
+                Get start
               </a>
             </button>
           </div>

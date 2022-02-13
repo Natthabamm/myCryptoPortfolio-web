@@ -12,7 +12,6 @@ import RegisterConfirm from "../pages/RegisterConfirm";
 
 const RouteConfig = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
   return (
     <Routes>
       {user ? (

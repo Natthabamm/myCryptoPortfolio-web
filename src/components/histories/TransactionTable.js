@@ -1,52 +1,90 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "../../styles/histories/TransactionTable.css";
 import sol from "../../pics/crypto/sol.png";
 import buy from "../../pics/transactionTypes/buy.png";
-import dot from "../../pics/crypto/dot.png";
+import sell from "../../pics/transactionTypes/sell.png";
+import { CryptoState } from "../../contexts/CryptoContext";
+import { numWithCommas } from "../../services/numWithCommas";
+import { RateState } from "../../contexts/RateContext";
 
 const TransactionTable = () => {
+  const [transaction, setTransaction] = useState([]);
+  const { symbol, currency, matchCryptoName } = CryptoState();
+  const { rate } = RateState()
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("/transactions");
+        const result = res.data.transactions.map((coin) => {
+          return {
+            ...coin,
+            img: matchCryptoName(coin.coinName),
+          };
+        });
+        console.log(result);
+
+        setTransaction(result);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, []);
+
+  console.log(rate)
+  console.log(symbol)
+
   return (
     <>
       <table style={{ color: "white" }}>
         <tr>
-          <th style={{ width: "20%" }}>Name</th>
-          <th style={{ width: "20%" }}>Type</th>
-          <th style={{ width: "20%" }}>Date</th>
-          <th style={{ width: "20%" }}>Price</th>
+          <th style={{ width: "15%" }}>Name</th>
+          <th style={{ width: "15%" }}>Type</th>
+          <th style={{ width: "15%" }}>Date</th>
+          <th style={{ width: "15%" }}>Time</th>
+          <th style={{ width: "15%" }}>Price</th>
           <th style={{ width: "20%" }}>Amount</th>
         </tr>
-        <tr>
-          <td>
-            <img src={sol} alt='' width={30} height={30} />
-            &nbsp; Solana
-          </td>
-          <td>
-            <img src={buy} alt='' width={30} height={30} />
-            &nbsp; Buy
-          </td>
-          <td>date & time</td>
-          <td>$196.85</td>
-          <td>
-            +$19,685.21 <br />
-            <span className='coin-in-table'>+100 SOL</span>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <img src={dot} alt='' width={30} height={30} />
-            &nbsp; Polkadot
-          </td>
-          <td>
-            <img src={buy} alt='' width={30} height={30} />
-            &nbsp; Buy
-          </td>
-          <td>date & time</td>
-          <td>$29.21</td>
-          <td>
-            +$2,910.93 <br />
-            <span className='coin-in-table'>+100 DOT</span>
-          </td>
-        </tr>
+
+        {transaction.map((item) => {
+          return (
+            <tr>
+              <td>
+                <img src={item.img.image} alt='' width={30} height={30} />
+                &nbsp; {item.coinName}
+              </td>
+              <td>
+                <img
+                  src={item.transactionType === "SELL" ? sell : buy}
+                  alt=''
+                  width={30}
+                  height={30}
+                />
+                &nbsp; {item.transactionType}
+              </td>
+              <td>{item.date}</td>
+              <td>{item.time}</td>
+              <td>
+                {symbol}
+                {numWithCommas((+item.pricePerCoin).toFixed(2))}
+              </td>
+              <td>
+                {item.transactionType === "SELL" ? "-" : "+"}
+                {symbol} {symbol === '฿' ? numWithCommas((+item.totalSpent * rate).toFixed(2)) : numWithCommas((+item.totalSpent).toFixed(2)) } <br />
+                <span
+                  className={`coin-in-table-${
+                    item.transactionType === "SELL" ? "negative" : "positive"
+                  }`}
+                >
+                  {item.transactionType === "SELL" ? "-" : "+"} {item.quanity}{" "}
+                  {item.img.symbol.toUpperCase()}
+                </span>
+              </td>
+            </tr>
+          );
+        })}
       </table>
     </>
   );

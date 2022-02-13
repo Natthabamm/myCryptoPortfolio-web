@@ -1,15 +1,21 @@
 table {
   border-collapse: collapse;
-  width: 800px;
+  width: 1100px;
   text-align: center;
 }
 th {
   border-bottom: 2px solid #ff784c;
+  border-top: 2px solid #ff784c;
+  padding: 10px;
 }
-tr:nth-child(3) {
-  background-color: #ff794c3b;
-}
-.coin-in-table {
+.coin-in-table-positive {
   color: rgb(45, 156, 45);
   font-weight: bold;
+}
+.coin-in-table-negative {
+  color: rgb(156, 45, 45);
+  font-weight: bold;
+}
+td {
+  padding: 10px;
 }

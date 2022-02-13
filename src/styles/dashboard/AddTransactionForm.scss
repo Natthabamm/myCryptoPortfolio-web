@@ -65,6 +65,19 @@ input[id="radio-2"] {
   margin-top: 15px;
   // outline: 2px dashed red;
 }
+.select-style {
+  width: 357px;
+  background-color: transparent;
+  height: 40px;
+  border: 2px solid #e05b30;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 0 10px;
+}
+.option-style {
+  background-color: transparent;
+  margin-top: 20px;
+}
 .coin-name {
   background-color: transparent;
   width: 357px;
@@ -120,7 +133,7 @@ input[id="radio-2"] {
 }
 .totalspent-group {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 357px;
   height: 100px;
   margin-top: 5px;
@@ -128,7 +141,7 @@ input[id="radio-2"] {
 .totalspent-input {
   color: #ffffff;
   padding: 0 10px;
-  width: 357px;
+  width: 310px;
   height: 80px;
   font-size: 1.5rem;
   border: none;
@@ -143,6 +156,10 @@ input[id="radio-2"] {
   font-weight: bold;
   border: none;
   margin-top: 30px;
+}
+.cur-totalspent {
+  align-self: center;
+  margin-top: 15px;
 }
 .quanity-name,
 .pricepercoin-name,

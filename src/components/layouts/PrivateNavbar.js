@@ -128,7 +128,7 @@ const PrivateNavbar = () => {
                 Hello, {user.username.toUpperCase()}
               </li>
               {/* <hr/> */}
-              <li className='li-1'>
+              <li className='li-1' role="button" disabled>
                 <a href='/setting'>
                   <i className='fas fa-cog' id='i-private' />
                   Setting

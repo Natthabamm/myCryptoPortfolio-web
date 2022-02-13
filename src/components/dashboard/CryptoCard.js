@@ -11,14 +11,14 @@ const CryptoCard = () => {
 
   const fetchTrendingCoins = async () => {
     const { data } = await axios.get(TrendingCoins(currency));
-
     const result = data.splice(0, 5);
+    console.log(result)
     setTrending(result);
   };
 
   useEffect(() => {
     fetchTrendingCoins();
-  }, currency);
+  }, [currency]);
 
   return (
     <>

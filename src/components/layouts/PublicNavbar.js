@@ -20,7 +20,7 @@ const PublicNavbar = () => {
           </div>
           <button className='btn-register'>
             <a href='/register' className='nav-link'>
-              Rigiser
+              Register
             </a>
           </button>
         </div>

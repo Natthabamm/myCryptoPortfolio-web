@@ -6,3 +6,11 @@
   align-items: center;
   flex-direction: column;
 }
+.header-content-history {
+  align-self: flex-start;
+  color: #ffffff;
+  /* outline: 2px dashed red; */
+  width: 100vw;
+  height: 100px;
+  padding: 50px 0 20px 370px;
+}

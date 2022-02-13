@@ -7,7 +7,7 @@ axios.defaults.baseURL = API_URL;
 axios.interceptors.request.use(
     config => {
         if (getToken()) {
-            config.headers.Authorization = 'Bearer' + getToken();
+            config.headers.Authorization = 'Bearer ' + getToken();
         }
         return config;
     },

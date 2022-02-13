@@ -6,7 +6,7 @@ const History = () => {
   return (
     <div className='bg-history'>
       <div className='header-content-history'>
-          <h3>Transaction History</h3>
+          <h4>Transaction History</h4>
       </div>
       <div className='footer-content-history'>
         <TransactionTable />
