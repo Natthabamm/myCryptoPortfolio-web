@@ -1,14 +1,28 @@
-import React, { useState } from "react";
-import CryptoCard from "../components/dashboard/CryptoCard";
-import "../styles/dashboard/Dashboard.css";
-import { CryptoState } from "../contexts/CryptoContext";
-import Modal from "../components/utils/Modal";
-import { DoughnutChart } from "../components/utils/DoughnutChart";
-import AssetTable from "../components/dashboard/AssetTable";
+import React, { useEffect, useState } from 'react';
+import CryptoCard from '../components/dashboard/CryptoCard';
+import '../styles/dashboard/Dashboard.css';
+import { CryptoState } from '../contexts/CryptoContext';
+import Modal from '../components/utils/Modal';
+import { DoughnutChart } from '../components/utils/DoughnutChart';
+import AssetTable from '../components/dashboard/AssetTable';
+import axios from 'axios';
 
 const Dashboard = () => {
   const [show, setShow] = useState(false);
   const { symbol } = CryptoState();
+
+  const fetchTransactionById = async transactionId => {
+    try {
+      const res = await axios.get(`/transactions/${transactionId}`);
+      const result = res.data.transactions;
+      console.log(result);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    fetchTransactionById();
+  },[]);
 
   return (
     <div className='bg-dashboard'>
@@ -26,7 +40,7 @@ const Dashboard = () => {
           </div>
           <div className='right-inside-main'>
             <button className='add-new' onClick={() => setShow(true)}>
-              <i className='fas fa-plus-circle' style={{ color: "white" }} />
+              <i className='fas fa-plus-circle' style={{ color: 'white' }} />
               Add New
             </button>
             <Modal onClose={() => setShow(false)} show={show} />

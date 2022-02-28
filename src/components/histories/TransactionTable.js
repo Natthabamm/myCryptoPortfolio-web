@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../../styles/histories/TransactionTable.css";
-import sol from "../../pics/crypto/sol.png";
 import buy from "../../pics/transactionTypes/buy.png";
 import sell from "../../pics/transactionTypes/sell.png";
 import { CryptoState } from "../../contexts/CryptoContext";
@@ -10,7 +9,7 @@ import { RateState } from "../../contexts/RateContext";
 
 const TransactionTable = () => {
   const [transaction, setTransaction] = useState([]);
-  const { symbol, currency, matchCryptoName } = CryptoState();
+  const { symbol, matchCryptoName } = CryptoState();
   const { rate } = RateState()
 
   useEffect(() => {
@@ -23,7 +22,6 @@ const TransactionTable = () => {
             img: matchCryptoName(coin.coinName),
           };
         });
-        console.log(result);
 
         setTransaction(result);
       } catch (err) {
@@ -32,9 +30,6 @@ const TransactionTable = () => {
     };
     fetchData();
   }, []);
-
-  console.log(rate)
-  console.log(symbol)
 
   return (
     <>
@@ -50,7 +45,7 @@ const TransactionTable = () => {
 
         {transaction.map((item) => {
           return (
-            <tr>
+            <tr className="tr-table">
               <td>
                 <img src={item.img.image} alt='' width={30} height={30} />
                 &nbsp; {item.coinName}
@@ -68,7 +63,7 @@ const TransactionTable = () => {
               <td>{item.time}</td>
               <td>
                 {symbol}
-                {numWithCommas((+item.pricePerCoin).toFixed(2))}
+                {symbol === '฿' ? numWithCommas((+item.pricePerCoin * rate).toFixed(2)) : numWithCommas((+item.totalSpent).toFixed(2)) }
               </td>
               <td>
                 {item.transactionType === "SELL" ? "-" : "+"}

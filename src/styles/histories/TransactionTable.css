@@ -19,3 +19,6 @@ th {
 td {
   padding: 10px;
 }
+.tr-table:hover {
+  background-color: #ff794c36;
+}
