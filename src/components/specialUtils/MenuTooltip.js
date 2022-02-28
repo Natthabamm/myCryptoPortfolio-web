@@ -1,41 +1,22 @@
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import DeleteIcon from '@mui/icons-material/Delete';
+import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
+import '../../styles/dashboard/AssetTable.css';
 
-const MenuTooltip = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
+const MenuTooltip = ({ open, anchorEl, handleCloseMenu1 }) => {
   return (
     <div>
-      <Button
-        id='basic-button'
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup='true'
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-      >
-        Dashboard
-      </Button>
-      <Menu
-        id='basic-menu'
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-      >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+      <Menu anchorEl={anchorEl} open={open} onClose={handleCloseMenu1}>
+        <MenuItem>
+          <CompareArrowsIcon />
+          Trasaction
+        </MenuItem>
+        <MenuItem onClick={handleCloseMenu1}>
+          <DeleteIcon />
+          Remove Asset
+        </MenuItem>
       </Menu>
     </div>
   );

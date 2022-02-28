@@ -9,6 +9,7 @@ import axios from 'axios';
 
 const Dashboard = () => {
   const [show, setShow] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
   const { symbol } = CryptoState();
 
   const fetchTransactionById = async transactionId => {

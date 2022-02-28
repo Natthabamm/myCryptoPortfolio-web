@@ -47,3 +47,11 @@
   border: solid;
   background-color: #ff794c7e;
 }
+
+.MuiMenu-root {
+  color: #000000;
+}
+
+.MuiMenu-root:hover {
+  color: #ff794c7e;
+}

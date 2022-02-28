@@ -1,8 +1,22 @@
-import React from "react";
-import sol from "../../pics/crypto/sol.png";
-import "../../styles/dashboard/AssetTable.css";
+import React, { useState } from 'react';
+import sol from '../../pics/crypto/sol.png';
+import '../../styles/dashboard/AssetTable.css';
+import MenuTooltip from '../specialUtils/MenuTooltip';
+import EditTransactionModal from './EditTransactionModal';
 
 const AssetTable = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [show, setShow] = useState(false);
+
+  const open = Boolean(anchorEl);
+
+  const handleClickOpenMenu1 = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleCloseMenu1 = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <>
       <h5 className='assets-h5'>Your Assets</h5>
@@ -22,8 +36,8 @@ const AssetTable = () => {
             &nbsp; Solana
           </td>
           <td className='assets-td'>$144.16</td>
-          <td className='assets-td' style={{ color: "red" }}>
-            <i className='fas fa-caret-down' style={{ color: "red" }} />
+          <td className='assets-td' style={{ color: 'red' }}>
+            <i className='fas fa-caret-down' style={{ color: 'red' }} />
             {/* <i className="fas fa-caret-up" style={{ color: 'rgb(45, 156, 45)' }} /> */}
             &nbsp; 2.07%
           </td>
@@ -35,23 +49,36 @@ const AssetTable = () => {
           <td className='assets-td'>
             -$5,274.97
             <br />
-            <i className='fas fa-caret-down' style={{ color: "red" }} />
-            <span className='profit-loss' style={{ color: "red" }}>
+            <i className='fas fa-caret-down' style={{ color: 'red' }} />
+            <span className='profit-loss' style={{ color: 'red' }}>
               26.80%
             </span>
           </td>
           <td className='assets-td'>
-            <div className="btn-group-actions">
-              <button className="btn-add-actions">
-              <i className="fas fa-plus" style={{ color: '#BCBEC0' }}/>
+            <div className='btn-group-actions'>
+              <button className='btn-add-actions' onClick={() => setShow(true)}>
+                <i className='fas fa-plus' style={{ color: '#BCBEC0' }} />
               </button>
-              <button className="btn-edit-actions">
-              <i className="fas fa-ellipsis-v" style={{ color: '#BCBEC0' }}/>
+              <EditTransactionModal
+                onClose={(e) => setShow(false)}
+                show={show}
+              />
+              <button
+                className='btn-edit-actions'
+                onClick={handleClickOpenMenu1}
+              >
+                <i className='fas fa-ellipsis-v' style={{ color: '#BCBEC0' }} />
               </button>
             </div>
           </td>
         </tr>
       </table>
+      <MenuTooltip
+        open={open}
+        handleClickOpenMenu={handleClickOpenMenu1}
+        anchorEl={anchorEl}
+        handleCloseMenu1={handleCloseMenu1}
+      />
     </>
   );
 };

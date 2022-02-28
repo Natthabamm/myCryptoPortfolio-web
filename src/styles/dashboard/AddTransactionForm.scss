@@ -9,7 +9,7 @@
     z-index: 2;
   }
 }
-input[type="radio"] {
+input[type='radio'] {
   display: none;
 }
 .tab {
@@ -23,7 +23,7 @@ input[type="radio"] {
   cursor: pointer;
   transition: color 0.15s ease-in;
 }
-input[id="radio"] {
+input[id='radio'] {
   &:checked {
     & + label {
       color: #e05b30;
@@ -34,14 +34,14 @@ input[id="radio"] {
     }
   }
 }
-input[id="radi0-1"] {
+input[id='radi0-1'] {
   &:checked {
     & ~ .gilter {
       transform: translateX(15%);
     }
   }
 }
-input[id="radio-2"] {
+input[id='radio-2'] {
   &:checked {
     & ~ .gilder {
       transform: translateX(105%);

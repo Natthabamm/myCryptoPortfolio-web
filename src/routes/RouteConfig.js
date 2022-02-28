@@ -9,6 +9,7 @@ import PrivateLayout from '../components/layouts/PrivateLayout';
 import PublicLayout from "../components/layouts/PublicLayout";
 import Home from "../pages/Home";
 import RegisterConfirm from "../pages/RegisterConfirm";
+import Transactions from "../pages/Transactions";
 
 const RouteConfig = () => {
   const { user } = useContext(AuthContext);
@@ -18,6 +19,7 @@ const RouteConfig = () => {
         <Route path='/' element={<PrivateLayout />}>
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='history' element={<History />} />
+          <Route path='transactions' element={<Transactions />} />
         </Route>
       ) : (
         <Route path='/' element={<PublicLayout />}>
