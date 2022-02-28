@@ -6,6 +6,7 @@ import Modal from '../components/utils/Modal';
 import { DoughnutChart } from '../components/utils/DoughnutChart';
 import AssetTable from '../components/dashboard/AssetTable';
 import axios from 'axios';
+import Statistic from '../components/dashboard/Statistic';
 
 const Dashboard = () => {
   const [show, setShow] = useState(false);
@@ -78,7 +79,8 @@ const Dashboard = () => {
                 Add New
               </button>
             </div> */}
-            <DoughnutChart />
+            {/* <DoughnutChart /> */}
+            <Statistic />
           </div>
         </div>
         <div className='footer-main'>
