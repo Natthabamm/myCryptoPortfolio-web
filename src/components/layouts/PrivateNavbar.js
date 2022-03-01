@@ -16,7 +16,6 @@ const PrivateNavbar = () => {
 
   const [isActive1, setIsActive1] = useDetectOutsideClick(dropdownRef1, false);
   const [isActive2, setIsActive2] = useDetectOutsideClick(dropdownRef2, false);
-  // const [isActive, setIsActive] = useState(false);
 
   const handleClick1 = () => setIsActive1(!isActive1);
   const handleClick2 = () => setIsActive2(!isActive2);

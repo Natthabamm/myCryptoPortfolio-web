@@ -30,6 +30,8 @@ export const data = {
   ],
 };
 
-export const DoughnutChart = () => {
+const DoughnutChart = () => {
   return <Doughnut data={data} />;
 }
+
+export default DoughnutChart;

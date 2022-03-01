@@ -1,0 +1,34 @@
+.tr-table-transaction {
+  height: 50px;
+  border-bottom: 1px solid #ff784c;
+  position: relative;
+}
+.tr-table-transaction:hover {
+  background-color: #ff794c17;
+}
+.inside-td-fix {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.edit-td-detail,
+.delete-td-detail {
+  background-color: transparent;
+  border: none;
+}
+.text-dattime-color {
+  color: #bcbec0;
+  font-size: 14px;
+  font-weight: bold;
+}
+.amount-color-positive {
+  color: #30bb78;
+  font-weight: bold;
+}
+.amount-color-negative {
+  color: #e72d04;
+  font-weight: bold;
+}
+.td-transaction-detial {
+  font-weight: bold;
+}

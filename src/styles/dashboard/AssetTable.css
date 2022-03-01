@@ -21,6 +21,9 @@
   padding: 10px;
   border-bottom: 1px solid #ff794cf6;
 }
+.assets-tr {
+  position: relative;
+}
 
 .assets-td-positive {
   background-color: plum;
@@ -46,12 +49,4 @@
 .btn-edit-actions:hover {
   border: solid;
   background-color: #ff794c7e;
-}
-
-.MuiMenu-root {
-  color: #000000;
-}
-
-.MuiMenu-root:hover {
-  color: #ff794c7e;
 }

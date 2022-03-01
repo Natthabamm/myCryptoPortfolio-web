@@ -3,17 +3,18 @@ import CryptoCard from '../components/dashboard/CryptoCard';
 import '../styles/dashboard/Dashboard.css';
 import { CryptoState } from '../contexts/CryptoContext';
 import Modal from '../components/utils/Modal';
-import { DoughnutChart } from '../components/utils/DoughnutChart';
 import AssetTable from '../components/dashboard/AssetTable';
 import axios from 'axios';
-import Statistic from '../components/dashboard/Statistic';
+import Statistic from '../components/dashboard/info/Statistic';
+import DoughnutChart from '../components/dashboard/info/DoughnutChart'
+import BlankAsset from '../components/dashboard/info/BlankAsset';
 
 const Dashboard = () => {
   const [show, setShow] = useState(false);
   const [showEdit, setShowEdit] = useState(false);
   const { symbol } = CryptoState();
 
-  const fetchTransactionById = async transactionId => {
+  const fetchTransactionById = async (transactionId) => {
     try {
       const res = await axios.get(`/transactions/${transactionId}`);
       const result = res.data.transactions;
@@ -24,7 +25,7 @@ const Dashboard = () => {
   };
   useEffect(() => {
     fetchTransactionById();
-  },[]);
+  }, []);
 
   return (
     <div className='bg-dashboard'>
@@ -45,7 +46,6 @@ const Dashboard = () => {
               <i className='fas fa-plus-circle' style={{ color: 'white' }} />
               Add New
             </button>
-            <Modal onClose={() => setShow(false)} show={show} />
           </div>
         </div>
         <div className='btn-group-select-chart'>
@@ -65,22 +65,9 @@ const Dashboard = () => {
         </div>
         <div className='center-main'>
           <div className='content-center-main'>
-            {/* <div className="text-center-main">
-                This portfolio is empty
-                <br />
-                Add any coins to get start
-            </div>
-            <div>
-              <button 
-                className='add-new-1'
-                onClick={() => setShow(true)}
-              >
-                <i className='fas fa-plus-circle' style={{ color: "white" }} />
-                Add New
-              </button>
-            </div> */}
+            {/* <Statistic /> */}
             {/* <DoughnutChart /> */}
-            <Statistic />
+            <BlankAsset setShow={setShow} />
           </div>
         </div>
         <div className='footer-main'>
@@ -91,6 +78,7 @@ const Dashboard = () => {
         <div className='merket-trend'>Market trend</div>
         <CryptoCard />
       </div>
+      <Modal onClose={() => setShow(false)} show={show} />
     </div>
   );
 };

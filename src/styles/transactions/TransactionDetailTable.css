@@ -1,0 +1,11 @@
+.transaction-detail-table {
+  height: 60px;
+  width: 750px;
+}
+.transaction-detail-head {
+  width: 600px;
+}
+.transaction-detail-head > th {
+  font-weight: 400;
+  color: #bcbec0;
+}

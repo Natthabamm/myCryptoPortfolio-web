@@ -1,4 +1,4 @@
-.modal-e {
+.modal-cf {
   position: fixed;
   left: 0;
   top: 0;
@@ -11,31 +11,55 @@
   height: 120vh;
   z-index: 5;
 }
-.div-in-modal-e {
+.div-in-modal-cf {
   display: flex;
   justify-content: space-between;
   color: #ffffff;
 }
-.h5-in-modal-e {
+.h5-in-modal-cf {
   font-weight: bold;
+  font-size: 1.5rem;
   margin: 20px 0 0 10px;
 }
-.modal-content-e {
-  width: 400px;
-  height: 400px;
+.text-cf {
+  color: #bcbec0;
+  line-height: 18px;
+  font-size: 14px;
+}
+.modal-content-cf {
+  width: 500px;
+  height: 230px;
   background-color: #000000;
   padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.151);
 }
-.modal-titile-e {
+.modal-titile-cf {
   color: #ffffff;
   margin: 0;
 }
-.modal-body-e {
+.modal-body-cf {
   border: none;
   padding: 10px;
-  height: 450px;
+  height: 300px;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
+  gap: 10px;
+}
+.remove-btn {
+  color: #ffffff;
+  font-weight: bold;
+  height: 40px;
+  border-radius: 5px;
+  background: #f74343;
+  border: none;
+  margin-top: 2px;
+}
+.cancel-btn {
+  color: #ffffff;
+  font-weight: bold;
+  height: 40px;
+  border-radius: 5px;
+  background: #ffffff23;
+  border: none;
 }

@@ -1,0 +1,66 @@
+.modal-id {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.657);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120vh;
+  z-index: 5;
+}
+.div-in-modal-id {
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff;
+}
+.h5-in-modal-id {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 20px 0 0 10px;
+}
+.text-id {
+  color: #bcbec0;
+  line-height: 18px;
+  font-size: 14px;
+  text-align: left;
+}
+.modal-content-id {
+  width: 500px;
+  height: 230px;
+  background-color: #000000;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.151);
+}
+.modal-titile-id {
+  color: #ffffff;
+  margin: 0;
+}
+.modal-body-id {
+  border: none;
+  padding: 10px;
+  height: 300px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+.remove-btn-id {
+  color: #ffffff;
+  font-weight: bold;
+  height: 40px;
+  border-radius: 5px;
+  background: #f74343;
+  border: none;
+  margin-top: 2px;
+}
+.cancel-btn-id {
+  color: #ffffff;
+  font-weight: bold;
+  height: 40px;
+  border-radius: 5px;
+  background: #ffffff23;
+  border: none;
+}

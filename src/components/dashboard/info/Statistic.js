@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../styles/dashboard/Statistic.css';
-import dot from '../../pics/crypto/dot.png';
-import ksm from '../../pics/crypto/ksm.png';
+import '../../../styles/dashboard/Statistic.css';
+import dot from '../../../pics/crypto/dot.png';
+import ksm from '../../../pics/crypto/ksm.png';
 
 const Statistic = () => {
   return (

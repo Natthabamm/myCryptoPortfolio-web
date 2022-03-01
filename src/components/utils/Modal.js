@@ -16,7 +16,6 @@ const Modal = (props) => {
         </div>
         <div className='modal-body'>
             <AddTransactionForm />
-            
         </div>
       </div>
     </div>

@@ -1,0 +1,22 @@
+.bg-transaction {
+  background-color: #1c1c1e;
+  height: 110vh;
+  display: flex;
+  flex-direction: column;
+}
+.header-content-transaction {
+  height: 300px;
+  width: 100vw;
+}
+.transaction-content {
+  height: 300px;
+  width: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section-transaction {
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
