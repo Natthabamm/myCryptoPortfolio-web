@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import TransactionDetail from '../components/transactions/TransactionDetail';
 import TransactionDetailTable from '../components/transactions/TransactionDetailTable';
 import { TransactionState } from '../contexts/TransactionContext';
@@ -20,7 +20,7 @@ const Transactions = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Transactions
+export default Transactions;

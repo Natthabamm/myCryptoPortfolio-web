@@ -12,7 +12,7 @@ const TransactionDetailTable = ({ transaction }) => {
         
         <th style={{ width: '20%' }}>Name</th>
         <th style={{ width: '20%' }}>Type</th>
-        <th style={{ width: '15%' }}>Price</th>
+        <th style={{ width: '15%' }}>Price Per Coin</th>
         <th style={{ width: '15%' }}>Amount</th>
         <th style={{ width: '20%' }}>Actions</th>
       </tr>

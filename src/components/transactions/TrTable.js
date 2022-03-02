@@ -75,7 +75,7 @@ const TrTable = ({ item }) => {
         {symbol}
         {symbol === '฿'
           ? numWithCommas((+item.pricePerCoin * rate).toFixed(2))
-          : numWithCommas((+item.totalSpent).toFixed(2))}
+          : numWithCommas((+item.pricePerCoin).toFixed(2))}
       </td>
       <td className='td-transaction-detial'>
         {item.transactionType === 'BUY' ? '+' : '-'}

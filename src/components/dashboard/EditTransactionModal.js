@@ -16,7 +16,7 @@ const EditTransactionModal = ({ show, handleOpenEditModal, item }) => {
             </span>
           </div>
           <div className='modal-body-e'>
-              <EditTransactionForm item={item} />
+              <EditTransactionForm item={item} handleOpenEditModal={handleOpenEditModal} />
           </div>
         </div>
       </div>
