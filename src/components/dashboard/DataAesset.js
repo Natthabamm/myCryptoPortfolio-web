@@ -2,11 +2,14 @@ import React, { useRef, useState } from 'react';
 import '../../styles/dashboard/AssetTable.css';
 import { useDetectOutsideClick } from '../../services/useDetectOutsideClick';
 import '../../styles/dashboard/MenuTooltip.css';
-import sol from '../../pics/crypto/sol.png';
 import MenuTooltip from './MenuTooltip';
+import { CryptoState } from '../../contexts/CryptoContext';
+import { numWithCommas } from '../../services/numWithCommas';
 
-const DataAesset = () => {
+const DataAesset = ({ item }) => {
   const dropdownRef = useRef(null);
+
+  const { symbol } = CryptoState();
 
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
   const handleClickOpenMenuTooltip = () => {
@@ -17,26 +20,57 @@ const DataAesset = () => {
     <>
       <tr className='assets-tr'>
         <td className='assets-td'>
-          <img src={sol} alt='' width={30} height={30} />
-          &nbsp; Solana
-        </td>
-        <td className='assets-td'>$144.16</td>
-        <td className='assets-td' style={{ color: 'red' }}>
-          <i className='fas fa-caret-down' style={{ color: 'red' }} />
-          {/* <i className="fas fa-caret-up" style={{ color: 'rgb(45, 156, 45)' }} /> */}
-          &nbsp; 2.07%
+          <img src={item.img.image} alt='' width={30} height={30} />
+          &nbsp; {item.img.name}
         </td>
         <td className='assets-td'>
-          +$19,685.21 <br />
-          <span className='coin-in-table'>100 SOL</span>
+          {symbol}
+          {numWithCommas(item.img.current_price)}
         </td>
-        <td className='assets-td'>$196.85</td>
+        <td
+          className='assets-td'
+          style={{
+            color: `${item.img.price_change_24h > 0 ? 'green' : 'red'}`,
+          }}
+        >
+          {item.img.price_change_24h > 0 ? (
+            <i
+              className='fas fa-caret-up'
+              style={{ color: 'rgb(45, 156, 45)' }}
+            />
+          ) : (
+            <i className='fas fa-caret-down' style={{ color: 'red' }} />
+          )}
+          &nbsp; {item.img.price_change_24h.toFixed(2)}%
+        </td>
         <td className='assets-td'>
-          -$5,274.97
+          {symbol}
+          {numWithCommas(
+            (item.quanity * item.img.current_price).toFixed(2)
+          )}{' '}
           <br />
-          <i className='fas fa-caret-down' style={{ color: 'red' }} />
-          <span className='profit-loss' style={{ color: 'red' }}>
-            26.80%
+          <span className='coin-in-table'>
+            {item.quanity} {item.coinName}
+          </span>
+        </td>
+        <td className='assets-td'>
+          {symbol}
+          {numWithCommas(item.avgBuy.toFixed(2))}
+        </td>
+        <td className='assets-td'>
+          {symbol}
+          {item.profit.toFixed(2)}
+          <br />
+          {item.profitPercent > 0 ? (
+            <i className='fas fa-caret-up' style={{ color: 'green' }} />
+          ) : (
+            <i className='fas fa-caret-down' style={{ color: 'red' }} />
+          )}
+          <span
+            className='profit-loss'
+            style={{ color: `${item.profitPercent > 0 ? 'green' : 'red'}` }}
+          >
+            {item.profitPercent}%
           </span>
         </td>
         <td className='assets-td'>
@@ -49,7 +83,11 @@ const DataAesset = () => {
             </button>
           </div>
         </td>
-        <MenuTooltip dropdownRef={dropdownRef} isActive={isActive} />
+        <MenuTooltip
+          dropdownRef={dropdownRef}
+          isActive={isActive}
+          item={item}
+        />
       </tr>
     </>
   );

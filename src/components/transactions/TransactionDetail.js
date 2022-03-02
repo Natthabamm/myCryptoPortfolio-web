@@ -1,16 +1,18 @@
 import React from 'react';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import dot from '../../pics/crypto/dot.png';
-import '../../styles/transactions/TransactionDetail.css';
+import '../../styles/transactions/TransactionDetail.css'
+import { useNavigate } from 'react-router-dom';
 
 const TransactionDetail = () => {
+  const navigate = useNavigate()
+
   return (
     <>
       <div className='box-transaction'>
         <div className='back-btn-div'>
-          <button className='back-btn'>
+          <button className='back-btn'
+            onClick={() => navigate('/dashboard')}
+          >
             <ArrowBackIosIcon
               sx={{ color: 'white', fontSize: '14px', fontWeight: 'bold' }}
             />
@@ -20,18 +22,18 @@ const TransactionDetail = () => {
         <div className='heading-detail'>
           <span>Transaction Details</span>
         </div>
-        <div className='detail-inside'>
+        {/* <div className='detail-inside'>
           <span className='coinname-span'>Solana SOL Balance</span>
           <div className='price-transaction'>
-            <img src={dot} height={30} width={30} />
+            <img src={sol} height={30} width={30} />
             <span className='price-span'>$14,481.43</span>
             <div className='percent-transaction-positive'>
               <ArrowDropUpIcon sx={{ color: '#30BB78' }} />
               7.66%
             </div>
           </div>
-        </div>
-        <div className='lower-content-transaction'>
+        </div> */}
+        {/* <div className='lower-content-transaction'>
           <div className='box1'>
             <span className='text1'>Quanity</span>
             <span className='text2'>100 SOL</span>
@@ -47,7 +49,7 @@ const TransactionDetail = () => {
                 26.80% (-5,274.97)
                 </span>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

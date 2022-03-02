@@ -1,7 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import '../../styles/dashboard/EditTransactionForm.css';
 
-const EditTransactionForm = () => {
+const EditTransactionForm = ({item}) => {
+  const [quanity, setQuanity] = useState();
+  const [pricePerCoin, setPricePerCoin] = useState();
+  const [date, setDate] = useState();
+  const [time, setTime] = useState()
+  const [totalSpent, setTotalSpent] = useState();
+
+  console.log(item)
+
+  const editTransactionById = async (id) => {
+    try {
+      const res = await axios.patch('/transactions/' + id, {
+        quanity,
+        pricePerCoin,
+        date,
+        time,
+        totalSpent
+      });
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <>
       <from>

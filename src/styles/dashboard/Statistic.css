@@ -1,9 +1,9 @@
 .state {
   width: 700px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 50px;
 }
-.group-all,
 .group-best,
 .group-worst {
   color: #fff;
@@ -11,14 +11,10 @@
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  width: 220px;
+  width: 250px;
   height: 100px;
   background: #ff794c1c;
-}
-
-.inside-group-all {
-  display: flex;
-  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.048);
 }
 
 .span-all,
@@ -27,4 +23,7 @@
   font-size: 16px;
   font-weight: 500;
   color: gray;
+}
+.div-worst {
+  margin-left: 10px;
 }

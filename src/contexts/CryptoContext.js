@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect, createContext } from "react";
 import { CoinList } from "../config/api";
 import axios from "axios";
+import { CollectionsOutlined } from "@mui/icons-material";
 
 const Crypto = createContext();
 
@@ -16,13 +17,12 @@ const CryptoContext = ({ children }) => {
 
   const fetchCoinList = async () => {
     const { data } = await axios.get(CoinList(currency));
-    // console.log(data);
     setCoinList(data);
   };
 
   useEffect(() => {
     fetchCoinList();
-  }, [currency]);
+  }, []);
 
 
   const matchCryptoName = (coinName) => {
@@ -31,7 +31,7 @@ const CryptoContext = ({ children }) => {
   };
 
   return (
-    <Crypto.Provider value={{ currency, setCurrency, symbol, matchCryptoName }}>
+    <Crypto.Provider value={{ currency, setCurrency, symbol, matchCryptoName, coinList }}>
       {children}
     </Crypto.Provider>
   );

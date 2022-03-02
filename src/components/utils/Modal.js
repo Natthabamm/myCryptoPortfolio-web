@@ -15,7 +15,7 @@ const Modal = (props) => {
           </span>
         </div>
         <div className='modal-body'>
-            <AddTransactionForm />
+            <AddTransactionForm  onClose={props.onClose}/>
         </div>
       </div>
     </div>

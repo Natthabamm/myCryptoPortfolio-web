@@ -1,3 +1,76 @@
+.tabs-d,
+.tab-b {
+  display: flex;
+  position: relative;
+  align-items: center;
+  background-color: #ff794c3b;
+  box-shadow: 0 0 1px rgba(#e06818ea, 0.15), 0 6px 12px 0 rgba(#e05718, 0.15);
+  padding: 0.75rem;
+  border-radius: 10px;
+  * {
+    z-index: 2;
+  }
+}
+input[type='radio'] {
+  display: none;
+}
+.tabb {
+  display: flex;
+  z-index: 5;
+  align-items: center;
+  height: 20px;
+  width: 140px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.15s ease-in;
+}
+.tabbb {
+  width: 170px;
+  text-align: center;
+  font-size: 1.1rem;
+  padding-left: 30px;
+  font-weight: bold;
+}
+input[id='radio-d'] {
+  &:checked {
+    & + label {
+      color: #e05b30;
+      // & > .notification {
+      //   background-color: #e05b30;
+      //   color: #fff;
+      // }
+    }
+  }
+}
+input[id='radi0-d'] {
+  &:checked {
+    & ~ .gilter-1 {
+      transform: translateX(15%);
+    }
+  }
+}
+input[id='radio-b'] {
+  &:checked {
+    & ~ .gilder-1 {
+      transform: translateX(105%);
+    }
+  }
+}
+.gilder-1 {
+  top: 7.5%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 85%;
+  width: 150px;
+  background-color: #e05c307a;
+  z-index: 0;
+  border-radius: 10px;
+  transition: 0.25s ease-out;
+}
+
 .bg-dashboard {
   background-color: #1c1c1e;
   height: 110vh;
@@ -16,7 +89,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 .head-main {
   height: 15vh;
