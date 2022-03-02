@@ -1,18 +1,18 @@
-import React, { useContext, useState, useEffect, createContext } from "react";
-import { CoinList } from "../config/api";
-import axios from "axios";
-import { CollectionsOutlined } from "@mui/icons-material";
+import React, { useContext, useState, useEffect, createContext } from 'react';
+import { CoinList } from '../config/api';
+import axios from 'axios';
+import { CollectionsOutlined } from '@mui/icons-material';
 
 const Crypto = createContext();
 
 const CryptoContext = ({ children }) => {
-  const [currency, setCurrency] = useState("USD");
-  const [symbol, setSymbol] = useState("$");
+  const [currency, setCurrency] = useState('USD');
+  const [symbol, setSymbol] = useState('$');
   const [coinList, setCoinList] = useState([]);
 
   useEffect(() => {
-    if (currency === "USD") setSymbol("$");
-    else if (currency === "THB") setSymbol("฿");
+    if (currency === 'USD') setSymbol('$');
+    else if (currency === 'THB') setSymbol('฿');
   }, [currency]);
 
   const fetchCoinList = async () => {
@@ -24,14 +24,16 @@ const CryptoContext = ({ children }) => {
     fetchCoinList();
   }, []);
 
-
   const matchCryptoName = (coinName) => {
-    return coinList.find((coin) =>
-      coin.symbol.toLowerCase() === coinName.toLowerCase() )
+    return coinList.find(
+      (coin) => coin.symbol.toLowerCase() === coinName.toLowerCase()
+    );
   };
 
   return (
-    <Crypto.Provider value={{ currency, setCurrency, symbol, matchCryptoName, coinList }}>
+    <Crypto.Provider
+      value={{ currency, setCurrency, symbol, matchCryptoName, coinList }}
+    >
       {children}
     </Crypto.Provider>
   );

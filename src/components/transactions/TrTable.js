@@ -10,11 +10,12 @@ import RemoveTransactionByIdModal from './RemoveTransactionByIdModal';
 import { CryptoState } from '../../contexts/CryptoContext';
 import { numWithCommas } from '../../services/numWithCommas';
 import { RateState } from '../../contexts/RateContext';
-import { TempleBuddhist } from '@mui/icons-material';
 
 const TrTable = ({ item }) => {
   const [show, setShow] = useState(false);
   const [show1, setShow1] = useState(false);
+
+  console.log(item)
 
   const { symbol } = CryptoState();
   const { rate } = RateState();

@@ -1,45 +1,11 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { TransactionState } from '../../contexts/TransactionContext';
-import { CryptoState } from '../../contexts/CryptoContext';
+// import { CryptoState } from '../../contexts/CryptoContext';
 import '../../styles/dashboard/AssetTable.css';
 import DataAesset from './DataAesset';
 
 const AssetTable = () => {
-  const { transaction } = TransactionState();
-  const { matchCryptoName, coinList } = CryptoState();
-
-  const tempTransaction = transaction.reduce((acc, cur) => {
-    if (!coinList) return;
-    if (acc[cur.coinName]) {
-      acc[cur.coinName].quanity =
-        Number(acc[cur.coinName].quanity) + Number(cur.quanity);
-      acc[cur.coinName].totalSpent =
-        Number(acc[cur.coinName].totalSpent) + Number(cur.totalSpent);
-      acc[cur.coinName].avgBuy =
-        (Number(acc[cur.coinName].avgBuy) + Number(cur.pricePerCoin)) / 2;
-      return acc;
-    }
-    acc[cur.coinName] = cur;
-    acc[cur.coinName].avgBuy = Number(cur.pricePerCoin);
-    return acc;
-  }, {});
-
-  const transactionGroup = Object.keys(tempTransaction)
-    .map(function (key) {
-      return tempTransaction[key];
-    })
-    .map((data) => {
-      const { current_price } = matchCryptoName(data.coinName);
-      const profit =
-        Number(data.quanity) * Number(current_price) - Number(data.totalSpent);
-      const profitPercent = parseFloat((Number(profit) / Number(data.totalSpent)) * 100).toFixed(2);
-      return {
-        ...data,
-        profit,
-        profitPercent,
-      };
-    });
+  const { transactionGroup } = TransactionState();
 
   return (
     <>
