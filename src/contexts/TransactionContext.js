@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useContext, useState } from 'react';
 import axios from 'axios';
 import { CryptoState } from './CryptoContext';
+import { AuthContext } from './AuthContext';
 
 const Transaction = createContext();
 
@@ -8,6 +9,10 @@ const TransactionContextProvider = ({ children }) => {
   const [transaction, setTransaction] = useState([]);
   const [transactionGroup, setTransactionGroup] = useState([]);
   const { matchCryptoName, coinList } = CryptoState();
+
+  const { user } = useContext(AuthContext);
+
+  console.log(user)
 
   const fetchAlltransactions = async () => {
     if (coinList.length === 0) return;
@@ -27,7 +32,7 @@ const TransactionContextProvider = ({ children }) => {
 
   useEffect(() => {
     fetchAlltransactions();
-  }, [coinList]);
+  }, [coinList, user]);
 
   useEffect(() => {
     if (!transaction) return;

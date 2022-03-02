@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect, createContext } from 'react';
 import { CoinList } from '../config/api';
 import axios from 'axios';
-import { CollectionsOutlined } from '@mui/icons-material';
 
 const Crypto = createContext();
 
