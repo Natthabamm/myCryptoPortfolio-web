@@ -15,7 +15,7 @@ const TrTable = ({ item }) => {
   const [show, setShow] = useState(false);
   const [show1, setShow1] = useState(false);
 
-  console.log(item)
+  console.log(item);
 
   const { symbol } = CryptoState();
   const { rate } = RateState();
@@ -81,8 +81,8 @@ const TrTable = ({ item }) => {
         {item.transactionType === 'BUY' ? '+' : '-'}
         {symbol}
         {symbol === '฿'
-          ? numWithCommas((+item.totalSpent * rate).toFixed(2))
-          : numWithCommas((+item.totalSpent).toFixed(2))}{' '}
+          ? numWithCommas((+item.pricePerCoin * item.quanity * rate).toFixed(2))
+          : numWithCommas((+item.pricePerCoin * item.quanity).toFixed(2))}{' '}
         <br />
         <span className='amount-color-positive'>
           {item.transactionType === 'BUY' ? '+' : '-'}

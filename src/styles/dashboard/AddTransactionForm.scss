@@ -135,7 +135,7 @@ input[id='radio-2'] {
   display: flex;
   flex-direction: row;
   width: 357px;
-  height: 100px;
+  height: 110px;
   margin-top: 5px;
 }
 .totalspent-input {
@@ -156,10 +156,19 @@ input[id='radio-2'] {
   font-weight: bold;
   border: none;
   margin-top: 30px;
+  &:disabled {
+    color: #fff;
+    background-color: #f09576f1;
+  }
 }
 .cur-totalspent {
   align-self: center;
   margin-top: 15px;
+  background-color: transparent;
+  color: #fff;
+  height: 80px;
+  border: 2px solid #e05b30;
+  border-radius: 5px;
 }
 .quanity-name,
 .pricepercoin-name,

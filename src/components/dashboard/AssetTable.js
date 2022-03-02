@@ -1,7 +1,7 @@
 import React from 'react';
 import { TransactionState } from '../../contexts/TransactionContext';
 // import { CryptoState } from '../../contexts/CryptoContext';
-import '../../styles/dashboard/AssetTable.css';
+import '../../styles/dashboard/AssetTable.scss';
 import DataAesset from './DataAesset';
 
 const AssetTable = () => {

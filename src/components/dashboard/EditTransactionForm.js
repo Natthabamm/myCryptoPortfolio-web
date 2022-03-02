@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../../styles/dashboard/EditTransactionForm.css';
 import { TransactionState } from '../../contexts/TransactionContext';
@@ -14,7 +14,9 @@ const EditTransactionForm = ({ item, handleOpenEditModal }) => {
   const { fetchAlltransactions } = TransactionState();
   const { symbol } = CryptoState();
 
-  console.log(item);
+  useEffect(() => {
+    setTotalSpent(pricePerCoin * quanity);
+  }, [pricePerCoin, quanity]);
 
   const editTransactionById = async (id) => {
     try {
@@ -89,11 +91,14 @@ const EditTransactionForm = ({ item, handleOpenEditModal }) => {
               placeholder={`${symbol}0`}
               type='number'
               value={pricePerCoin * quanity}
-              onChange={(e) => setTotalSpent(e.target.value)}
             />
           </div>
         </div>
-        <button className='add-transaction-btn-edit' type='submit' onClick={handleEditedTransaction}>
+        <button
+          className='add-transaction-btn-edit'
+          type='submit'
+          onClick={handleEditedTransaction}
+        >
           Add Transaction
         </button>
       </from>

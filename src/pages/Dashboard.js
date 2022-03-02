@@ -10,12 +10,15 @@ import DoughnutChart from '../components/dashboard/info/DoughnutChart';
 import BlankAsset from '../components/dashboard/info/BlankAsset';
 import { TransactionState } from '../contexts/TransactionContext';
 import { numWithCommas } from '../services/numWithCommas';
+import { RateState } from '../contexts/RateContext';
 
 const Dashboard = () => {
   const [show, setShow] = useState(false);
   const [isShowDoughnut, setIsShowDougnut] = useState(true);
+
   const { symbol } = CryptoState();
   const { transaction, transactionGroup } = TransactionState();
+  const { rate } = RateState();
 
   const currentBalance = transactionGroup.reduce((acc, cur) => {
     return acc + Number(cur.quanity) * Number(cur.img.current_price);
@@ -30,14 +33,18 @@ const Dashboard = () => {
             <div className='balance-main'>
               <h2>
                 {symbol}
-                {numWithCommas(currentBalance.toFixed(2))}
+                {symbol === '฿'
+                  ? numWithCommas((currentBalance * rate).toFixed(2))
+                  : numWithCommas(currentBalance.toFixed(2))}
               </h2>
-              <div className='percent-inside-balance'>--%</div>
+              {/* Feature in the future */}
+              {/* <div className='percent-inside-balance'>--%</div> */}
             </div>
-            <div className='percent-main'>
+            {/* <div className='percent-main'>
               +{symbol}0<div className='time-inside-percent'>(24H)</div>
-            </div>
+            </div> */}
           </div>
+
           <div className='right-inside-main'>
             <button className='add-new' onClick={() => setShow(true)}>
               <i className='fas fa-plus-circle' style={{ color: 'white' }} />
@@ -77,9 +84,9 @@ const Dashboard = () => {
           <div className='content-center-main'>
             {transaction.length >= 1 ? (
               isShowDoughnut === true ? (
-                <DoughnutChart transactionGroup={transactionGroup}/>
+                <DoughnutChart transactionGroup={transactionGroup} />
               ) : (
-                <Statistic transactionGroup={transactionGroup}/>
+                <Statistic transactionGroup={transactionGroup} />
               )
             ) : (
               <BlankAsset setShow={setShow} />

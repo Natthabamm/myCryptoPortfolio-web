@@ -1,15 +1,17 @@
 import React, { useRef, useState } from 'react';
-import '../../styles/dashboard/AssetTable.css';
+import '../../styles/dashboard/AssetTable.scss';
 import { useDetectOutsideClick } from '../../services/useDetectOutsideClick';
 import '../../styles/dashboard/MenuTooltip.css';
 import MenuTooltip from './MenuTooltip';
 import { CryptoState } from '../../contexts/CryptoContext';
 import { numWithCommas } from '../../services/numWithCommas';
+import { RateState } from '../../contexts/RateContext';
 
 const DataAesset = ({ item }) => {
   const dropdownRef = useRef(null);
 
   const { symbol } = CryptoState();
+  const { rate } = RateState();
 
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
   const handleClickOpenMenuTooltip = () => {
@@ -25,7 +27,9 @@ const DataAesset = ({ item }) => {
         </td>
         <td className='assets-td'>
           {symbol}
-          {numWithCommas(item.img.current_price)}
+          {symbol === '฿'
+            ? numWithCommas((item.img.current_price * rate).toFixed(2))
+            : numWithCommas(item.img.current_price.toFixed(2))}
         </td>
         <td
           className='assets-td'
@@ -45,9 +49,9 @@ const DataAesset = ({ item }) => {
         </td>
         <td className='assets-td'>
           {symbol}
-          {numWithCommas(
-            (item.quanity * item.img.current_price).toFixed(2)
-          )}{' '}
+          {symbol === '฿'
+            ? numWithCommas(((item.quanity * item.img.current_price )* rate).toFixed(2))
+            : numWithCommas((item.quanity * item.img.current_price).toFixed(2))}
           <br />
           <span className='coin-in-table'>
             {item.quanity} {item.coinName}
@@ -55,11 +59,15 @@ const DataAesset = ({ item }) => {
         </td>
         <td className='assets-td'>
           {symbol}
-          {numWithCommas(item.avgBuy.toFixed(2))}
+          {symbol === '฿'
+            ? numWithCommas((item.avgBuy * rate).toFixed(2))
+            : numWithCommas(item.avgBuy.toFixed(2))}
         </td>
         <td className='assets-td'>
           {symbol}
-          {item.profit.toFixed(2)}
+          {symbol === '฿'
+            ? numWithCommas((item.profit * rate).toFixed(2))
+            : numWithCommas(item.profit.toFixed(2))}
           <br />
           {item.profitPercent > 0 ? (
             <i className='fas fa-caret-up' style={{ color: 'green' }} />

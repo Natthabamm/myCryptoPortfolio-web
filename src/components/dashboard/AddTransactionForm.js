@@ -5,7 +5,7 @@ import { TransactionState } from '../../contexts/TransactionContext';
 import '../../styles/dashboard/AddTransactionForm.scss';
 
 const AddTransactionForm = ({ onClose }) => {
-  const { coinList } = CryptoState();
+  const { coinList, symbol } = CryptoState();
   const { fetchAlltransactions } = TransactionState();
 
   const [transactionType, setTransactionType] = useState('BUY');
@@ -147,7 +147,7 @@ const AddTransactionForm = ({ onClose }) => {
                 <span className='totalspent-name'>Total Spent</span>
                 <input
                   className='totalspent-input'
-                  placeholder='$0'
+                  placeholder={`${symbol}0`}
                   type='number'
                   value={quanity * pricePerCoin}
                   onChange={(e) => setTotalSpent(e.target.value)}
@@ -167,6 +167,16 @@ const AddTransactionForm = ({ onClose }) => {
         <button
           className='add-transaction-btn'
           onClick={handleCreateTransaction}
+          disabled={
+            !transactionType ||
+            !coinName ||
+            !quanity ||
+            !pricePerCoin ||
+            !date ||
+            !time ||
+            !totalSpent ||
+            !currencies
+          }
         >
           Add Transaction
         </button>

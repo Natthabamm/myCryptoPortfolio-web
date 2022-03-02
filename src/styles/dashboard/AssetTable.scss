@@ -17,12 +17,14 @@
   padding: 10px;
 }
 .assets-td {
-  background-color: #ff794c15;
   padding: 10px;
   border-bottom: 1px solid #ff794cf6;
 }
 .assets-tr {
   position: relative;
+  &:hover {
+    background-color: #ff794c15;
+  }
 }
 
 .assets-td-positive {

@@ -33,17 +33,13 @@ input[type='radio'] {
   padding-left: 30px;
   font-weight: bold;
 }
-input[id='radio-d'] {
-  &:checked {
-    & + label {
-      color: #e05b30;
-      // & > .notification {
-      //   background-color: #e05b30;
-      //   color: #fff;
-      // }
-    }
-  }
-}
+// input[id='radio-d'] {
+//   &:checked {
+//     & + label {
+//       // color: #e05b30;
+//     }
+//   }
+// }
 input[id='radi0-d'] {
   &:checked {
     & ~ .gilter-1 {
@@ -65,7 +61,7 @@ input[id='radio-b'] {
   align-items: center;
   height: 85%;
   width: 150px;
-  background-color: #e05c307a;
+  background-color: #e05c30fb;
   z-index: 0;
   border-radius: 10px;
   transition: 0.25s ease-out;
@@ -73,7 +69,7 @@ input[id='radio-b'] {
 
 .bg-dashboard {
   background-color: #1c1c1e;
-  height: 110vh;
+  height: 115vh;
   display: flex;
 }
 .main-content {

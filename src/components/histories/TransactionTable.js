@@ -53,8 +53,8 @@ const TransactionTable = () => {
                   {item.transactionType === 'SELL' ? '-' : '+'}
                   {symbol}{' '}
                   {symbol === '฿'
-                    ? numWithCommas((+item.totalSpent * rate).toFixed(2))
-                    : numWithCommas((+item.totalSpent).toFixed(2))}{' '}
+                    ? numWithCommas(((+item.pricePerCoin * item.quanity) * rate).toFixed(2))
+                    : numWithCommas((+item.pricePerCoin * item.quanity ).toFixed(2))}{' '}
                   <br />
                   <span
                     className={`coin-in-table-${
