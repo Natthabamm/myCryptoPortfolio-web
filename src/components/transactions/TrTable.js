@@ -15,12 +15,8 @@ const TrTable = ({ item }) => {
   const [show, setShow] = useState(false);
   const [show1, setShow1] = useState(false);
 
-  console.log(item);
-
   const { symbol } = CryptoState();
   const { rate } = RateState();
-
-  console.log(item);
 
   const handleOpenEditModal = () => {
     setShow(!show);
@@ -84,7 +80,7 @@ const TrTable = ({ item }) => {
           ? numWithCommas((+item.pricePerCoin * item.quanity * rate).toFixed(2))
           : numWithCommas((+item.pricePerCoin * item.quanity).toFixed(2))}{' '}
         <br />
-        <span className='amount-color-positive'>
+        <span className='amount-color-positive' style={{ color: `${item.transactionType === 'BUY' ? 'green' : 'red'}` }}>
           {item.transactionType === 'BUY' ? '+' : '-'}
           {Number(item.quanity)} {item.coinName}
         </span>

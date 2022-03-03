@@ -34,10 +34,10 @@ const DataAesset = ({ item }) => {
         <td
           className='assets-td'
           style={{
-            color: `${item.img.price_change_24h > 0 ? 'green' : 'red'}`,
+            color: `${item.img.price_change_percentage_24h > 0 ? 'green' : 'red'}`,
           }}
         >
-          {item.img.price_change_24h > 0 ? (
+          {item.img.price_change_percentage_24h > 0 ? (
             <i
               className='fas fa-caret-up'
               style={{ color: 'rgb(45, 156, 45)' }}
@@ -45,13 +45,13 @@ const DataAesset = ({ item }) => {
           ) : (
             <i className='fas fa-caret-down' style={{ color: 'red' }} />
           )}
-          &nbsp; {item.img.price_change_24h.toFixed(2)}%
+          &nbsp; {item.img.price_change_percentage_24h.toFixed(2)}%
         </td>
         <td className='assets-td'>
           {symbol}
           {symbol === '฿'
-            ? numWithCommas(((item.quanity * item.img.current_price )* rate).toFixed(2))
-            : numWithCommas((item.quanity * item.img.current_price).toFixed(2))}
+            ? numWithCommas(((item.holding )* rate).toFixed(2))
+            : numWithCommas((item.holding).toFixed(2))}
           <br />
           <span className='coin-in-table'>
             {item.quanity} {item.coinName}

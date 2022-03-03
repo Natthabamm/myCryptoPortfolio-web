@@ -21,7 +21,7 @@ const Dashboard = () => {
   const { rate } = RateState();
 
   const currentBalance = transactionGroup.reduce((acc, cur) => {
-    return acc + Number(cur.quanity) * Number(cur.img.current_price);
+    return acc + Number(cur.holding);
   }, 0);
 
   return (

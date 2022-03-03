@@ -12,7 +12,7 @@ const TransactionContextProvider = ({ children }) => {
 
   const { user } = useContext(AuthContext);
 
-  console.log(user)
+  console.log(user);
 
   const fetchAlltransactions = async () => {
     if (coinList.length === 0) return;
@@ -36,20 +36,36 @@ const TransactionContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (!transaction) return;
+    console.log(transaction);
     const cloneTransaction = JSON.parse(JSON.stringify(transaction));
     const tempTransaction = cloneTransaction.reduce((acc, cur) => {
       if (!coinList) return;
       if (acc[cur.coinName]) {
-        acc[cur.coinName].quanity =
-          Number(acc[cur.coinName].quanity) + Number(cur.quanity);
-        acc[cur.coinName].totalSpent =
-          Number(acc[cur.coinName].totalSpent) + Number(cur.totalSpent);
-        acc[cur.coinName].avgBuy =
-          (Number(acc[cur.coinName].avgBuy) + Number(cur.pricePerCoin)) / 2;
+        if (cur.transactionType === 'SELL') {
+          acc[cur.coinName].totalSpent =
+            Number(acc[cur.coinName].totalSpent) - Number(cur.totalSpent);
+        } else {
+          acc[cur.coinName].holding +=
+            Number(cur.quanity) * Number(cur.img.current_price);
+          acc[cur.coinName].quanity += Number(cur.quanity);
+          acc[cur.coinName].totalSpent =
+            Number(acc[cur.coinName].totalSpent) + Number(cur.totalSpent);
+          acc[cur.coinName].avgBuy =
+            (Number(acc[cur.coinName].avgBuy) + Number(cur.pricePerCoin)) / 2;
+        }
         return acc;
       }
       acc[cur.coinName] = cur;
       acc[cur.coinName].avgBuy = Number(cur.pricePerCoin);
+      if (cur.transactionType === 'SELL') {
+        acc[cur.coinName].holding = 0 - Number(cur.totalSpent);
+        acc[cur.coinName].quanity =
+          Number(acc[cur.coinName].quanity) - Number(cur.quanity);
+      } else {
+        acc[cur.coinName].holding =
+          Number(cur.quanity) * Number(cur.img.current_price);
+        acc[cur.coinName].quanity = Number(cur.quanity);
+      }
       return acc;
     }, {});
 
