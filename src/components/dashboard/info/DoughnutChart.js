@@ -5,7 +5,7 @@ import { Doughnut } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const DoughnutChart = ({ transactionGroup }) => {
-  console.log(transactionGroup);
+  // console.log(transactionGroup);
   const label = transactionGroup.map((d) => d.coinName);
   const quanity = transactionGroup.map((d) => d.quanity * d.img.current_price);
 
